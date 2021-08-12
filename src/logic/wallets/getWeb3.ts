@@ -11,6 +11,7 @@ import { getAddressFromUnstoppableDomain } from './utils/unstoppableDomains'
 
 // This providers have direct relation with name assigned in bnc-onboard configuration
 export enum WALLET_PROVIDER {
+  XINPAY = 'XINPAY',
   METAMASK = 'METAMASK',
   TORUS = 'TORUS',
   PORTIS = 'PORTIS',
@@ -67,9 +68,9 @@ const isSmartContractWallet = async (web3Provider: Web3, account: string): Promi
 }
 
 export const getProviderInfo = async (web3Instance: Web3, providerName = 'Wallet'): Promise<ProviderProps> => {
-  const account = (await getAccountFrom(web3Instance)) || ''
+  const account = await getAccountFrom(web3Instance)
   const network = await getNetworkIdFrom(web3Instance)
-  const smartContractWallet = await isSmartContractWallet(web3Instance, account)
+  const smartContractWallet = account !== null ? await isSmartContractWallet(web3Instance, account) : false
   const hardwareWallet = isHardwareWallet(providerName)
 
   const available = account !== null
@@ -78,7 +79,7 @@ export const getProviderInfo = async (web3Instance: Web3, providerName = 'Wallet
     name: providerName,
     available,
     loaded: true,
-    account,
+    account: account ?? '',
     network,
     smartContractWallet,
     hardwareWallet,

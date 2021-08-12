@@ -16,6 +16,10 @@ import squarelinkIcon from './icon-squarelink.png'
 import { WALLET_PROVIDER } from 'src/logic/wallets/getWeb3'
 
 const WALLET_ICONS: { [key in WALLET_PROVIDER]: { src: string; height: number } } = {
+  [WALLET_PROVIDER.XINPAY]: {
+    src: metamaskIcon,
+    height: 25,
+  },
   [WALLET_PROVIDER.METAMASK]: {
     src: metamaskIcon,
     height: 25,

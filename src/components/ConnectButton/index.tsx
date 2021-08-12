@@ -7,13 +7,17 @@ import { fetchProvider } from 'src/logic/wallets/store/actions'
 import { store } from 'src/store'
 import { shouldSwitchNetwork, switchNetwork } from 'src/logic/wallets/utils/network'
 
-let providerName
+const walletSelect = () => {
+  if (!window.ethereum) {
+    return false
+  }
 
-if (window.ethereum) {
   setWeb3(window.ethereum as any)
-  providerName = 'Metamask'
-  store.dispatch(fetchProvider(providerName))
+  store.dispatch(fetchProvider('XinPay'))
+  return true
 }
+
+walletSelect()
 
 export const onboard = {
   getState(): any {
@@ -27,51 +31,11 @@ export const onboard = {
     }
   },
   walletReset(): any {},
-  walletSelect(): any {
-    return true
-  },
+  walletSelect,
   walletCheck(): any {
     return true
   },
 }
-// Onboard({
-//   networkId,
-//   networkName,
-//   subscriptions: {
-//     wallet: (wallet) => {
-//       if (wallet.provider) {
-//         // this function will intialize web3 and store it somewhere available throughout the dapp and
-//         // can also instantiate your contracts with the web3 instance
-//         setWeb3(wallet.provider)
-//         providerName = wallet.name
-//       }
-//     },
-//     address: (address) => {
-//       if (!lastUsedAddress && address) {
-//         lastUsedAddress = address
-//         store.dispatch(fetchProvider(providerName))
-//       }
-
-//       // we don't have an unsubscribe event so we rely on this
-//       if (!address && lastUsedAddress) {
-//         lastUsedAddress = ''
-//         providerName = undefined
-//         store.dispatch(removeProvider())
-//       }
-//     },
-//   },
-//   walletSelect: {
-//     description: 'Please select a wallet to connect to Gnosis Safe',
-//     wallets,
-//   },
-//   walletCheck: [
-//     { checkName: 'derivationPath' },
-//     { checkName: 'connect' },
-//     { checkName: 'accounts' },
-//     { checkName: 'network' },
-//     transactionDataCheck(),
-//   ],
-// })
 
 const checkWallet = async (): Promise<boolean> => {
   const ready = onboard.walletCheck()

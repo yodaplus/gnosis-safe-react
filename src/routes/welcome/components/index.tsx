@@ -1,16 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-  Card,
-  Button,
-  Title,
-  Text,
-  Divider,
-  ButtonLink,
-  Dot,
-  Icon,
-  Link as LinkSRC,
-} from '@gnosis.pm/safe-react-components'
+import { Card, Button, Title, Text, Divider, Dot, Icon } from '@gnosis.pm/safe-react-components'
 
 import Link from 'src/components/layout/Link'
 import Block from 'src/components/layout/Block'
@@ -63,9 +53,6 @@ const StyledTitle = styled(Title)`
 const StyledTitleOnly = styled(Title)`
   margin: 0 0 16px 0;
 `
-const StyledButtonLink = styled(ButtonLink)`
-  margin: 16px 0 16px -8px;
-`
 
 type Props = {
   isOldMultisigMigration?: boolean
@@ -109,17 +96,6 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
             <Text size="xl">
               Gnosis Safe supports a wide range of wallets that you can choose to interact with your Safe.
             </Text>
-            <StyledButtonLink textSize="xl" color="primary" iconType="externalLink" iconSize="sm">
-              <LinkSRC
-                size="xl"
-                href="https://help.gnosis-safe.io/en/articles/4689442-why-do-i-need-to-connect-a-wallet"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="More info about: Why do I need to connect a wallet?"
-              >
-                Why do I need to connect a wallet?
-              </LinkSRC>
-            </StyledButtonLink>
             <StyledButton
               size="lg"
               color="primary"
