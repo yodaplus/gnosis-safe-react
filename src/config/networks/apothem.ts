@@ -1,5 +1,5 @@
 import EtherLogo from 'src/config/assets/token_eth.svg'
-import { EnvironmentSettings, ETHEREUM_NETWORK, NetworkConfig, WALLETS } from 'src/config/networks/network.d'
+import { EnvironmentSettings, ETHEREUM_NETWORK, NetworkConfig, WALLETS, FEATURES } from 'src/config/networks/network.d'
 import { ETHGASSTATION_API_KEY } from 'src/utils/constants'
 
 const baseConfig: EnvironmentSettings = {
@@ -49,6 +49,13 @@ const rinkeby: NetworkConfig = {
     },
   },
   disabledWallets: [WALLETS.FORTMATIC],
+  disabledFeatures: [
+    FEATURES.CONTRACT_INTERACTION,
+    FEATURES.ERC1155,
+    FEATURES.ERC721,
+    FEATURES.SAFE_APPS,
+    FEATURES.SPENDING_LIMIT,
+  ],
 }
 
 export default rinkeby

@@ -3,9 +3,7 @@ import React, { ReactElement, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-import { getModuleData } from './dataFetcher'
 import { useStyles } from './style'
-import { ModulesTable } from './ModulesTable'
 
 import Block from 'src/components/layout/Block'
 import { currentSafe } from 'src/logic/safe/store/selectors'
@@ -19,16 +17,9 @@ const Bold = styled.strong`
   color: ${theme.colors.text};
 `
 
-const NoModuleLegend = (): ReactElement => (
-  <InfoText color="secondaryLight" size="xl">
-    No modules enabled
-  </InfoText>
-)
-
 const Advanced = (): ReactElement => {
   const classes = useStyles()
-  const { nonce, modules } = useSelector(currentSafe) ?? {}
-  const moduleData = modules ? getModuleData(modules) ?? null : null
+  const { nonce } = useSelector(currentSafe) ?? {}
   const { trackEvent } = useAnalytics()
 
   useEffect(() => {
@@ -49,27 +40,6 @@ const Advanced = (): ReactElement => {
         <InfoText color="secondaryLight" size="xl">
           Current Nonce: <Bold>{nonce}</Bold>
         </InfoText>
-      </Block>
-
-      {/* Modules */}
-      <Block className={classes.container}>
-        <Title size="xs" withoutMargin>
-          Safe Modules
-        </Title>
-        <InfoText size="lg">
-          Modules allow you to customize the access-control logic of your Safe. Modules are potentially risky, so make
-          sure to only use modules from trusted sources. Learn more about modules{' '}
-          <a
-            href="https://docs.gnosis.io/safe/docs/contracts_architecture/#3-module-management"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            here
-          </a>
-          .
-        </InfoText>
-
-        {!moduleData || !moduleData.length ? <NoModuleLegend /> : <ModulesTable moduleData={moduleData} />}
       </Block>
     </>
   )
