@@ -12,12 +12,13 @@ import torusIcon from './icon-torus.svg'
 import coinbaseIcon from './icon-coinbase.svg'
 import operaIcon from './icon-opera.png'
 import squarelinkIcon from './icon-squarelink.png'
+import xinpayIcon from './icon-xinpay.png'
 
 import { WALLET_PROVIDER } from 'src/logic/wallets/getWeb3'
 
 const WALLET_ICONS: { [key in WALLET_PROVIDER]: { src: string; height: number } } = {
   [WALLET_PROVIDER.XINPAY]: {
-    src: metamaskIcon,
+    src: xinpayIcon,
     height: 25,
   },
   [WALLET_PROVIDER.METAMASK]: {

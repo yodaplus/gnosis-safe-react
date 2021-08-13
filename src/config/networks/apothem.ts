@@ -1,4 +1,4 @@
-import EtherLogo from 'src/config/assets/token_eth.svg'
+import XDCLogo from 'src/config/assets/token_xdc.svg'
 import { EnvironmentSettings, ETHEREUM_NETWORK, NetworkConfig, WALLETS, FEATURES } from 'src/config/networks/network.d'
 import { ETHGASSTATION_API_KEY } from 'src/utils/constants'
 
@@ -45,7 +45,7 @@ const rinkeby: NetworkConfig = {
       name: 'XDC',
       symbol: 'XDC',
       decimals: 18,
-      logoUri: EtherLogo,
+      logoUri: XDCLogo,
     },
   },
   disabledWallets: [WALLETS.FORTMATIC],
