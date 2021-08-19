@@ -2,17 +2,19 @@ import XDCLogo from 'src/config/assets/token_xdc.svg'
 import { EnvironmentSettings, ETHEREUM_NETWORK, NetworkConfig, WALLETS, FEATURES } from 'src/config/networks/network.d'
 import { ETHGASSTATION_API_KEY } from 'src/utils/constants'
 
+const PAGE_URL = `${window.location.protocol}//${window.location.hostname}`
+
 const baseConfig: EnvironmentSettings = {
-  clientGatewayUrl: 'http://localhost:8001/v1',
-  txServiceUrl: 'http://localhost:8000/api/v1',
-  safeUrl: 'https://rinkeby.gnosis-safe.io/app',
+  clientGatewayUrl: `${PAGE_URL}:8001/v1`,
+  txServiceUrl: `${PAGE_URL}:8000/api/v1`,
+  safeUrl: `${PAGE_URL}`,
   gasPriceOracle: {
     url: `https://ethgasstation.info/json/ethgasAPI.json?api-key=${ETHGASSTATION_API_KEY}`,
     gasParameter: 'average',
     gweiFactor: '1e8',
   },
-  rpcServiceUrl: 'http://localhost:8083',
-  safeAppsRpcServiceUrl: 'http://localhost:8083',
+  rpcServiceUrl: `${PAGE_URL}:8083`,
+  safeAppsRpcServiceUrl: `${PAGE_URL}:8083`,
   networkExplorerName: 'XinFinScan',
   networkExplorerUrl: 'https://explorer.apothem.network',
   networkExplorerApiUrl: 'https://explorer.apothem.network/publicAPI',
@@ -26,12 +28,9 @@ const rinkeby: NetworkConfig = {
     },
     staging: {
       ...baseConfig,
-      safeUrl: 'https://safe-team-rinkeby.staging.gnosisdev.com/app/',
     },
     production: {
       ...baseConfig,
-      clientGatewayUrl: 'https://safe-client.rinkeby.gnosis.io/v1',
-      txServiceUrl: 'https://safe-transaction.rinkeby.gnosis.io/api/v1',
     },
   },
   network: {
