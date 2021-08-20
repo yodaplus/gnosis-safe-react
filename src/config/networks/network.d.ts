@@ -48,6 +48,7 @@ export enum ETHEREUM_NETWORK {
   LOCAL = 4447,
   VOLTA = 73799,
   POLYGON = 137,
+  XINFIN = 50,
   APOTHEM = 51,
 }
 

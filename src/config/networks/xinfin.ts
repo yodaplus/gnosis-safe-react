@@ -7,7 +7,7 @@ const PAGE_URL = `${window.location.protocol}//${window.location.hostname}`
 const baseConfig: EnvironmentSettings = {
   clientGatewayUrl: `${PAGE_URL}:8001/v1`,
   txServiceUrl: `${PAGE_URL}:8000/api/v1`,
-  safeUrl: `https://gnosis-apothem.xinfin.yodaplus.net`,
+  safeUrl: `https://gnosis.xinfin.yodaplus.net`,
   gasPriceOracle: {
     url: `https://ethgasstation.info/json/ethgasAPI.json?api-key=${ETHGASSTATION_API_KEY}`,
     gasParameter: 'average',
@@ -16,11 +16,11 @@ const baseConfig: EnvironmentSettings = {
   rpcServiceUrl: `${PAGE_URL}:8083`,
   safeAppsRpcServiceUrl: `${PAGE_URL}:8083`,
   networkExplorerName: 'XinFinScan',
-  networkExplorerUrl: 'https://explorer.apothem.network',
-  networkExplorerApiUrl: 'https://explorer.apothem.network/publicAPI',
+  networkExplorerUrl: 'https://explorer.xinfin.network',
+  networkExplorerApiUrl: 'https://explorer.xinfin.network/publicAPI',
 }
 
-const rinkeby: NetworkConfig = {
+const xinfin: NetworkConfig = {
   environment: {
     dev: {
       ...baseConfig,
@@ -34,11 +34,11 @@ const rinkeby: NetworkConfig = {
     },
   },
   network: {
-    id: ETHEREUM_NETWORK.APOTHEM,
+    id: ETHEREUM_NETWORK.XINFIN,
     backgroundColor: '#E8673C',
     textColor: '#ffffff',
-    label: 'Apothem',
-    isTestNet: true,
+    label: 'Xinfin Mainnet',
+    isTestNet: false,
     nativeCoin: {
       address: '0x0000000000000000000000000000000000000000',
       name: 'XDC',
@@ -57,4 +57,4 @@ const rinkeby: NetworkConfig = {
   ],
 }
 
-export default rinkeby
+export default xinfin
