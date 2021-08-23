@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { makeStyles } from '@material-ui/core/styles'
 import TableContainer from '@material-ui/core/TableContainer'
 import React, { ReactElement, ReactNode, useEffect, useState } from 'react'
@@ -23,6 +22,7 @@ import { getOwnerAddressBy, getOwnerNameBy } from 'src/routes/open/components/fi
 import { styles } from './styles'
 import { LoadFormValues } from 'src/routes/load/container/Load'
 import { getSafeInfo } from 'src/logic/safe/utils/safeInformation'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const calculateSafeValues = (owners, threshold, values) => {
   const initialValues = { ...values }

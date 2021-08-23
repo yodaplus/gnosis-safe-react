@@ -1,4 +1,4 @@
-import { Text, EthHashInfo } from '@gnosis.pm/safe-react-components'
+import { Text } from '@gnosis.pm/safe-react-components'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -8,6 +8,7 @@ import {
 } from 'src/routes/safe/components/Balances/SendModal/screens/ContractInteraction/utils'
 import { HexEncodedData } from './HexEncodedData'
 import { getExplorerInfo } from 'src/config'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const NestedWrapper = styled.div`
   padding-left: 4px;

@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import TableContainer from '@material-ui/core/TableContainer'
 import React, { Fragment, ReactElement, ReactNode } from 'react'
 
@@ -14,6 +13,7 @@ import { getNumOwnersFrom, getOwnerAddressBy, getOwnerNameBy } from 'src/routes/
 import { getAccountsFrom } from 'src/routes/open/utils/safeDataExtractor'
 import { useStyles } from './styles'
 import { LoadFormValues } from 'src/routes/load/container/Load'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const checkIfUserAddressIsAnOwner = (values: LoadFormValues, userAddress: string): boolean => {
   let isOwner = false

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import {
   Icon,
   FixedIcon,
-  EthHashInfo,
   Text,
   Identicon,
   Button,
@@ -16,6 +15,8 @@ import FlexSpacer from 'src/components/FlexSpacer'
 import { getExplorerInfo, getNetworkInfo } from 'src/config'
 import { NetworkSettings } from 'src/config/networks/network.d'
 import { border, fontColor } from 'src/theme/variables'
+import EthHashInfo from 'src/components/EthHashInfo'
+import { transformHashForXinfin } from 'src/utils/xinfin'
 
 export const TOGGLE_SIDEBAR_BTN_TESTID = 'TOGGLE_SIDEBAR_BTN'
 
@@ -152,7 +153,7 @@ const SafeHeader = ({
           <ButtonHelper onClick={onReceiveClick}>
             <Icon size="sm" type="qrCode" tooltip="Show QR" />
           </ButtonHelper>
-          <CopyToClipboardBtn textToCopy={address} />
+          <CopyToClipboardBtn textToCopy={transformHashForXinfin(address)} />
           <ExplorerButton explorerUrl={explorerUrl} />
         </IconContainer>
 

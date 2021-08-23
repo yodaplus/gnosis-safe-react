@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Transaction } from '@gnosis.pm/safe-apps-sdk-v1'
-import { Text, EthHashInfo, CopyToClipboardBtn, IconText, FixedIcon } from '@gnosis.pm/safe-react-components'
+import { Text, CopyToClipboardBtn, IconText, FixedIcon } from '@gnosis.pm/safe-react-components'
 import get from 'lodash.get'
 
 import { web3ReadOnly as web3 } from 'src/logic/wallets/getWeb3'
 import { getExplorerInfo, getNetworkInfo } from 'src/config'
 import { DecodedData, DecodedDataBasicParameter, DecodedDataParameterValue } from 'src/types/transactions/decode.d'
 import { DecodedTxDetail } from 'src/routes/safe/components/Apps/components/ConfirmTxModal'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const FlexWrapper = styled.div<{ margin: number }>`
   display: flex;

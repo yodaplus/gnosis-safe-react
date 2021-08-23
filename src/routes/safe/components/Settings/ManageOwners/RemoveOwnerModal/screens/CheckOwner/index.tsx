@@ -10,9 +10,9 @@ import Row from 'src/components/layout/Row'
 import { OwnerData } from 'src/routes/safe/components/Settings/ManageOwners/dataFetcher'
 
 import { useStyles } from './style'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { getExplorerInfo } from 'src/config'
 import { Modal } from 'src/components/Modal'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export const REMOVE_OWNER_MODAL_NEXT_BTN_TEST_ID = 'remove-owner-next-btn'
 

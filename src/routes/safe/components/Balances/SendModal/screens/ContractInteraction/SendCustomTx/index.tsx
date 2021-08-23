@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import React, { ReactElement, useState } from 'react'
 import { useSelector } from 'react-redux'
 import IconButton from '@material-ui/core/IconButton'
@@ -32,6 +31,7 @@ import { styles } from './style'
 import { getExplorerInfo, getNetworkInfo } from 'src/config'
 import { addressBookState } from 'src/logic/addressBook/store/selectors'
 import { sameAddress } from 'src/logic/wallets/ethAddresses'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export interface CreatedTx {
   contractAddress: string

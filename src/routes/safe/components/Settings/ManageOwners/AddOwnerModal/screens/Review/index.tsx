@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Close from '@material-ui/icons/Close'
 import React, { ReactElement, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 
 import { getExplorerInfo } from 'src/config'
 import Block from 'src/components/layout/Block'
@@ -19,6 +18,7 @@ import { TxParameters } from 'src/routes/safe/container/hooks/useTransactionPara
 import { EstimationStatus, useEstimateTransactionGas } from 'src/logic/hooks/useEstimateTransactionGas'
 import { Modal } from 'src/components/Modal'
 import { TransactionFees } from 'src/components/TransactionsFees'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 import { OwnerValues } from '../..'
 import { styles } from './style'

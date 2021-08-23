@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useMemo, useState } from 'react'
-import { EthHashInfo, Text } from '@gnosis.pm/safe-react-components'
+import { Text } from '@gnosis.pm/safe-react-components'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 
@@ -23,6 +23,7 @@ import { DecodedData } from 'src/types/transactions/decode.d'
 import { fromTokenUnit } from 'src/logic/tokens/utils/humanReadableValue'
 import Block from 'src/components/layout/Block'
 import Divider from 'src/components/Divider'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 import { ConfirmTxModalProps, DecodedTxDetail } from '.'
 import Hairline from 'src/components/layout/Hairline'

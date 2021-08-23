@@ -1,4 +1,4 @@
-import { ButtonLink, EthHashInfo, Text } from '@gnosis.pm/safe-react-components'
+import { ButtonLink, Text } from '@gnosis.pm/safe-react-components'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { ReactElement } from 'react'
 import { useDispatch } from 'react-redux'
@@ -11,6 +11,7 @@ import DefaultBadge from './DefaultBadge'
 import { DefaultSafe } from 'src/logic/safe/store/reducer/types/safe'
 import setDefaultSafe from 'src/logic/safe/store/actions/setDefaultSafe'
 import { getNetworkInfo } from 'src/config'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const StyledButtonLink = styled(ButtonLink)`
   visibility: hidden;

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
-import { EthHashInfo, Identicon, Card } from '@gnosis.pm/safe-react-components'
+import { Identicon, Card } from '@gnosis.pm/safe-react-components'
 import { createStyles } from '@material-ui/core'
 
 import Spacer from 'src/components/Spacer'
@@ -16,6 +16,7 @@ import { ETHEREUM_NETWORK } from 'src/config/networks/network.d'
 import { getExplorerInfo, getNetworkId, getNetworkLabel } from 'src/config'
 import { KeyRing } from 'src/components/AppLayout/Header/components/KeyRing'
 import { CircleDot } from 'src/components/AppLayout/Header/components/CircleDot'
+import EthHashInfo from 'src/components/EthHashInfo'
 import WalletIcon from '../../assets/wallet.svg'
 
 const styles = createStyles({

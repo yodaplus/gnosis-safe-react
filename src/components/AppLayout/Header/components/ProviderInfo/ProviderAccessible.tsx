@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { EthHashInfo, Text } from '@gnosis.pm/safe-react-components'
+import { Text } from '@gnosis.pm/safe-react-components'
 
 import Col from 'src/components/layout/Col'
 import Paragraph from 'src/components/layout/Paragraph'
@@ -10,6 +10,7 @@ import { connected as connectedBg, screenSm, sm } from 'src/theme/variables'
 import { KeyRing } from 'src/components/AppLayout/Header/components/KeyRing'
 import { networkSelector } from 'src/logic/wallets/store/selectors'
 import { getNetworkLabel } from 'src/config'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const useStyles = makeStyles({
   network: {

@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import MuiTextField from '@material-ui/core/TextField'
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete'
 import React, { Dispatch, ReactElement, SetStateAction, useEffect, useState } from 'react'
@@ -18,6 +17,7 @@ import {
 } from 'src/routes/safe/components/Balances/SendModal/screens/AddressBookInput/style'
 import { trimSpaces } from 'src/utils/strings'
 import { Errors, logError } from 'src/logic/exceptions/CodedException'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const chainId = getNetworkId()
 

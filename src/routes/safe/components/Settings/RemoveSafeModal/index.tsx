@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import IconButton from '@material-ui/core/IconButton'
 import Close from '@material-ui/icons/Close'
 import React from 'react'
@@ -16,6 +15,7 @@ import { WELCOME_ADDRESS } from 'src/routes/routes'
 import removeSafe from 'src/logic/safe/store/actions/removeSafe'
 import setDefaultSafe from 'src/logic/safe/store/actions/setDefaultSafe'
 import { sameAddress } from 'src/logic/wallets/ethAddresses'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 import { getExplorerInfo } from 'src/config'
 import Col from 'src/components/layout/Col'

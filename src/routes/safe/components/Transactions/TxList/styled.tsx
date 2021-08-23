@@ -1,5 +1,7 @@
-import { Text, Accordion, AccordionDetails, AccordionSummary, EthHashInfo } from '@gnosis.pm/safe-react-components'
+import { Text, Accordion, AccordionDetails, AccordionSummary } from '@gnosis.pm/safe-react-components'
 import styled, { css } from 'styled-components'
+
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export const Wrapper = styled.div`
   display: flex;

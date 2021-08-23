@@ -1,7 +1,7 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import React, { ReactElement } from 'react'
 
 import { getExplorerInfo } from 'src/config'
+import EthHashInfo from 'src/components/EthHashInfo'
 import { useKnownAddress } from './hooks/useKnownAddress'
 
 type Props = {

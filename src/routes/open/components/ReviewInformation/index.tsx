@@ -16,11 +16,11 @@ import {
 
 import { FIELD_CONFIRMATIONS, FIELD_NAME, getNumOwnersFrom } from '../fields'
 import { useStyles } from './styles'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { useEstimateSafeCreationGas } from 'src/logic/hooks/useEstimateSafeCreationGas'
 import { FormApi } from 'final-form'
 import { StepperPageFormProps } from 'src/components/Stepper'
 import { LoadFormValues } from 'src/routes/load/container/Load'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 type ReviewComponentProps = {
   values: LoadFormValues

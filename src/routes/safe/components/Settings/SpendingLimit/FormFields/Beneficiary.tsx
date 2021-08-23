@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import React, { KeyboardEvent, ReactElement, useEffect, useState } from 'react'
 import { useForm, useFormState } from 'react-final-form'
 import { useSelector } from 'react-redux'
@@ -9,6 +8,7 @@ import { getExplorerInfo } from 'src/config'
 import { currentNetworkAddressBook } from 'src/logic/addressBook/store/selectors'
 import { AddressBookInput } from 'src/routes/safe/components/Balances/SendModal/screens/AddressBookInput'
 import { sameString } from 'src/utils/strings'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const BeneficiaryInput = styled.div`
   grid-area: beneficiaryInput;

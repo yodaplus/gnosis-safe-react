@@ -3,7 +3,6 @@ import {
   BreadcrumbElement,
   Button,
   ButtonLink,
-  EthHashInfo,
   FixedIcon,
   Icon,
   Menu,
@@ -48,6 +47,7 @@ import { grantedSelector } from 'src/routes/safe/container/selector'
 import { useAnalytics, SAFE_NAVIGATION_EVENT } from 'src/utils/googleAnalytics'
 import ImportEntriesModal from './ImportEntriesModal'
 import { isValidAddress } from 'src/utils/isValidAddress'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const StyledButton = styled(Button)`
   &&.MuiButton-root {

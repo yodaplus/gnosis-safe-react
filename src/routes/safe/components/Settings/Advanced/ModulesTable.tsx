@@ -1,4 +1,4 @@
-import { Icon, EthHashInfo } from '@gnosis.pm/safe-react-components'
+import { Icon } from '@gnosis.pm/safe-react-components'
 import TableContainer from '@material-ui/core/TableContainer'
 import cn from 'classnames'
 import React from 'react'
@@ -16,6 +16,7 @@ import { TableCell, TableRow } from 'src/components/layout/Table'
 import Block from 'src/components/layout/Block'
 import Row from 'src/components/layout/Row'
 import { getExplorerInfo } from 'src/config'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const REMOVE_MODULE_BTN_TEST_ID = 'remove-module-btn'
 const MODULES_ROW_TEST_ID = 'owners-row'

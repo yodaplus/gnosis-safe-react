@@ -2,11 +2,12 @@ import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 import { generatePath } from 'react-router-dom'
 import styled from 'styled-components'
-import { EthHashInfo, Text } from '@gnosis.pm/safe-react-components'
+import { Text } from '@gnosis.pm/safe-react-components'
 
 import Link from 'src/components/layout/Link'
 import { SAFE_ROUTES, LOAD_ADDRESS } from 'src/routes/routes'
 import { addressBookName } from 'src/logic/addressBook/store/selectors'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const Wrapper = styled.div`
   display: flex;

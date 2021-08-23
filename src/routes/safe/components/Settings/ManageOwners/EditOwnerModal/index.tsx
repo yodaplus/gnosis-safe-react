@@ -20,7 +20,7 @@ import { OwnerData } from 'src/routes/safe/components/Settings/ManageOwners/data
 
 import { useStyles } from './style'
 import { getExplorerInfo } from 'src/config'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export const RENAME_OWNER_INPUT_TEST_ID = 'rename-owner-input'
 export const SAVE_OWNER_CHANGES_BTN_TEST_ID = 'save-owner-changes-btn'

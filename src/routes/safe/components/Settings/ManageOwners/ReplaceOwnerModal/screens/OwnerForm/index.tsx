@@ -30,7 +30,7 @@ import { isValidAddress } from 'src/utils/isValidAddress'
 
 import { useStyles } from './style'
 import { getExplorerInfo } from 'src/config'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export const REPLACE_OWNER_NAME_INPUT_TEST_ID = 'replace-owner-name-input'
 export const REPLACE_OWNER_ADDRESS_INPUT_TEST_ID = 'replace-owner-address-testid'

@@ -1,4 +1,3 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 
@@ -6,6 +5,7 @@ import { getExplorerInfo } from 'src/config'
 import { addressBookEntryName } from 'src/logic/addressBook/store/selectors'
 import { ADDRESS_BOOK_DEFAULT_NAME } from 'src/logic/addressBook/model/addressBook'
 import { sameString } from 'src/utils/strings'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 export const OwnerRow = ({ address }: { address: string }): ReactElement => {
   const ownerName = useSelector((state) => addressBookEntryName(state, { address }))

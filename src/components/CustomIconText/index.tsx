@@ -1,5 +1,6 @@
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import React, { ReactElement } from 'react'
+
+import EthHashInfo from 'src/components/EthHashInfo'
 
 type Props = {
   address: string

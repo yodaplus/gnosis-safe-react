@@ -21,6 +21,7 @@ import {
   SAFE_APPS_RPC_TOKEN,
 } from 'src/utils/constants'
 import { ensureOnce } from 'src/utils/singleton'
+import { transformHashForXinfin } from 'src/utils/xinfin'
 
 export const getNetworkId = (): ETHEREUM_NETWORK => ETHEREUM_NETWORK[NETWORK]
 
@@ -206,11 +207,13 @@ export const getExplorerInfo = (hash: string): BlockScanInfo => {
   const { name, url } = getNetworkExplorerInfo()
   const networkInfo = getNetworkInfo()
 
+  const xinfinHash = transformHashForXinfin(hash)
+
   switch (networkInfo.id) {
     default: {
-      const type = hash.length > 42 ? 'tx' : 'address'
+      const type = xinfinHash.length > 43 ? 'tx' : 'addr'
       return () => ({
-        url: `${url}/${type}/${hash}`,
+        url: `${url}/${type}/${xinfinHash}`,
         alt: name || '',
       })
     }

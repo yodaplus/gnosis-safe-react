@@ -41,12 +41,12 @@ import { currentSafeSpendingLimits } from 'src/logic/safe/store/selectors'
 import { sameString } from 'src/utils/strings'
 
 import { styles } from './style'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { spendingLimitAllowedBalance, getSpendingLimitByTokenAddress } from 'src/logic/safe/utils/spendingLimits'
 import { getBalanceAndDecimalsFromToken } from 'src/logic/tokens/utils/tokenHelpers'
 import { getNetworkInfo } from 'src/config'
 import Divider from 'src/components/Divider'
 import { Modal } from 'src/components/Modal'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const formMutators = {
   setMax: (args, state, utils) => {

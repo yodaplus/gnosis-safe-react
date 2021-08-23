@@ -2,7 +2,6 @@ import IconButton from '@material-ui/core/IconButton'
 import Close from '@material-ui/icons/Close'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 
 import { getExplorerInfo } from 'src/config'
 import Block from 'src/components/layout/Block'
@@ -21,6 +20,7 @@ import { TransactionFees } from 'src/components/TransactionsFees'
 import { EditableTxParameters } from 'src/routes/safe/components/Transactions/helpers/EditableTxParameters'
 import { sameAddress } from 'src/logic/wallets/ethAddresses'
 import { OwnerData } from 'src/routes/safe/components/Settings/ManageOwners/dataFetcher'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 import { useStyles } from './style'
 

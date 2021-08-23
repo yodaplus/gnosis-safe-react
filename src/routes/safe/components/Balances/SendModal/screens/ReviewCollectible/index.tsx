@@ -22,7 +22,6 @@ import { textShortener } from 'src/utils/strings'
 import { generateERC721TransferTxData } from 'src/logic/collectibles/utils'
 
 import { styles } from './style'
-import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { EstimationStatus, useEstimateTransactionGas } from 'src/logic/hooks/useEstimateTransactionGas'
 import { useEstimationStatus } from 'src/logic/hooks/useEstimationStatus'
 import { ButtonStatus, Modal } from 'src/components/Modal'
@@ -30,6 +29,7 @@ import { TransactionFees } from 'src/components/TransactionsFees'
 import { EditableTxParameters } from 'src/routes/safe/components/Transactions/helpers/EditableTxParameters'
 import { TxParametersDetail } from 'src/routes/safe/components/Transactions/helpers/TxParametersDetail'
 import { TxParameters } from 'src/routes/safe/container/hooks/useTransactionParameters'
+import EthHashInfo from 'src/components/EthHashInfo'
 
 const useStyles = makeStyles(styles)
 
