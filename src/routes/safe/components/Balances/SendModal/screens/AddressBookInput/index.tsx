@@ -18,6 +18,7 @@ import {
 import { trimSpaces } from 'src/utils/strings'
 import { Errors, logError } from 'src/logic/exceptions/CodedException'
 import EthHashInfo from 'src/components/EthHashInfo'
+import { transformHashForXinfin, transformHashFromXinfin } from 'src/utils/xinfin'
 
 const chainId = getNetworkId()
 
@@ -157,18 +158,29 @@ const BaseAddressBookInput = ({
       onInputChange={onInputChange}
       options={addressBookEntries}
       id="address-book-input"
-      renderInput={(params) => (
-        <MuiTextField
-          {...params}
-          autoFocus={true}
-          error={!!validationText}
-          fullWidth
-          variant="filled"
-          label={validationText ? validationText : label}
-          InputLabelProps={{ shrink: true, required: true, classes: labelStyles }}
-          InputProps={{ ...params.InputProps, classes: inputStyles }}
-        />
-      )}
+      renderInput={(params) => {
+        const inputProps = params.inputProps as any
+        const value = transformHashForXinfin(inputProps.value)
+        const onChange = (e) =>
+          inputProps.onChange({
+            ...e,
+            target: { ...e.target, value: transformHashFromXinfin(e.target.value) },
+          })
+
+        return (
+          <MuiTextField
+            {...params}
+            autoFocus={true}
+            error={!!validationText}
+            fullWidth
+            variant="filled"
+            label={validationText ? validationText : label}
+            InputLabelProps={{ shrink: true, required: true, classes: labelStyles }}
+            InputProps={{ ...params.InputProps, classes: inputStyles }}
+            inputProps={{ ...inputProps, value, onChange }}
+          />
+        )
+      }}
       getOptionLabel={({ address }) => address}
       renderOption={({ address, name }) => <EthHashInfo hash={address} name={name} showAvatar />}
       role="listbox"

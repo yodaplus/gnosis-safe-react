@@ -9,6 +9,7 @@ import { getAddressFromDomain } from 'src/logic/wallets/getWeb3'
 import { isValidEnsName, isValidCryptoDomainName } from 'src/logic/wallets/ethAddresses'
 import { checksumAddress } from 'src/utils/checksumAddress'
 import { Errors, logError } from 'src/logic/exceptions/CodedException'
+import { transformHashForXinfin, transformHashFromXinfin } from 'src/utils/xinfin'
 
 // an idea for second field was taken from here
 // https://github.com/final-form/react-final-form-listeners/blob/master/src/OnBlur.js
@@ -53,6 +54,8 @@ const AddressInput = ({
       type="text"
       spellCheck={false}
       validate={composeValidators(required, mustBeEthereumAddress, ...validators)}
+      format={transformHashForXinfin}
+      parse={transformHashFromXinfin}
     />
     <OnChange name={name}>
       {async (value: string) => {
