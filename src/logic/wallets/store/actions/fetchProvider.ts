@@ -8,6 +8,7 @@ import { NOTIFICATIONS, enhanceSnackbarForAction } from 'src/logic/notifications
 import enqueueSnackbar from 'src/logic/notifications/store/actions/enqueueSnackbar'
 import { getProviderInfo, getWeb3 } from 'src/logic/wallets/getWeb3'
 import { makeProvider } from 'src/logic/wallets/store/model/provider'
+import { ETHEREUM_NETWORK } from 'src/config/networks/network.d'
 
 export const processProviderResponse = (dispatch, provider) => {
   const walletRecord = makeProvider(provider)
@@ -24,6 +25,10 @@ const handleProviderNotification = (provider, dispatch) => {
 
   if (getNetworkInfo().isTestNet) {
     dispatch(enqueueSnackbar(enhanceSnackbarForAction(NOTIFICATIONS.TESTNET_VERSION_MSG)))
+  }
+
+  if (getNetworkInfo().id === ETHEREUM_NETWORK.XINFIN) {
+    dispatch(enqueueSnackbar(enhanceSnackbarForAction(NOTIFICATIONS.BETA_VERSION_MSG)))
   }
 
   if (available) {
