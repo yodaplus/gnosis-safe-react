@@ -13,6 +13,7 @@ import Row from 'src/components/layout/Row'
 import { border, fontColor, lg, md, screenSm, secondaryText } from 'src/theme/variables'
 import { getExplorerInfo, getNetworkInfo } from 'src/config'
 import EthHashInfo from 'src/components/EthHashInfo'
+import { transformHashForXinfin } from 'src/utils/xinfin'
 
 const networkInfo = getNetworkInfo()
 const useStyles = makeStyles(
@@ -100,7 +101,7 @@ const ReceiveModal = ({ onClose, safeAddress, safeName }: Props): ReactElement =
           {safeName}
         </Paragraph>
         <Block className={classes.qrContainer}>
-          <QRCode size={135} value={safeAddress} />
+          <QRCode size={135} value={transformHashForXinfin(safeAddress)} />
         </Block>
         <Block className={classes.addressContainer} justify="center">
           <EthHashInfo hash={safeAddress} showAvatar showCopyBtn explorerUrl={getExplorerInfo(safeAddress)} />
