@@ -78,7 +78,7 @@ const Sidebar = ({
 
     <HelpContainer>
       <StyledDivider />
-      <HelpCenterLink target="_blank" title="Help Center of Gnosis Safe">
+      <HelpCenterLink target="_blank" title="Help Center of Yodaplus Multi-Sig Safe">
         <IconText text="HELP CENTER" iconSize="md" textSize="md" color="placeHolder" iconType="question" />
       </HelpCenterLink>
     </HelpContainer>

@@ -64,7 +64,7 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
     <Block>
       {/* Title */}
       <Title size="md" strong>
-        Welcome to Gnosis Safe.
+        Welcome to Yodaplus Multi-Sig Safe.
       </Title>
 
       {/* Subtitle */}
@@ -76,7 +76,8 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
           </>
         ) : (
           <>
-            Gnosis Safe is the most trusted platform to manage digital assets. <br /> Here is how to get started:{' '}
+            Yodaplus Multi-Sig Safe is the most trusted platform to manage digital assets on XinFin Block Chain. <br />{' '}
+            Here is how to get started:{' '}
           </>
         )}
       </Title>
@@ -94,7 +95,7 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
               </StyledTitle>
             </TitleWrapper>
             <Text size="xl">
-              Gnosis Safe supports a wide range of wallets that you can choose to interact with your Safe.
+              Yodaplus Multi-Sig Safe supports a wide range of wallets that you can choose to interact with your Safe.
             </Text>
             <StyledButton
               size="lg"

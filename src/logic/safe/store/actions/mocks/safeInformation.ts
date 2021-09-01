@@ -23,7 +23,7 @@ export const remoteSafeInfoWithModules = {
   ],
   implementation: {
     value: '0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F',
-    name: 'Gnosis Safe: Mastercopy 1.1.1',
+    name: 'Yodaplus Multi-Sig Safe: Mastercopy 1.1.1',
     logoUrl:
       'https://safe-transaction-assets.staging.gnosisdev.com/contracts/logos/0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F.png',
   },
@@ -34,7 +34,7 @@ export const remoteSafeInfoWithModules = {
   ],
   fallbackHandler: {
     value: '0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44',
-    name: 'Gnosis Safe: Default Callback Handler 1.1.1',
+    name: 'Yodaplus Multi-Sig Safe: Default Callback Handler 1.1.1',
     logoUrl:
       'https://safe-transaction-assets.staging.gnosisdev.com/contracts/logos/0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44.png',
   },
@@ -65,14 +65,14 @@ export const remoteSafeInfoWithoutModules = {
   ],
   implementation: {
     value: '0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F',
-    name: 'Gnosis Safe: Mastercopy 1.1.1',
+    name: 'Yodaplus Multi-Sig Safe: Mastercopy 1.1.1',
     logoUrl:
       'https://safe-transaction-assets.staging.gnosisdev.com/contracts/logos/0x34CfAC646f301356fAa8B21e94227e3583Fe3F5F.png',
   },
   modules: [],
   fallbackHandler: {
     value: '0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44',
-    name: 'Gnosis Safe: Default Callback Handler 1.1.1',
+    name: 'Yodaplus Multi-Sig Safe: Default Callback Handler 1.1.1',
     logoUrl:
       'https://safe-transaction-assets.staging.gnosisdev.com/contracts/logos/0xd5D82B6aDDc9027B22dCA772Aa68D5d74cdBdF44.png',
   },

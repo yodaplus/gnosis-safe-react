@@ -1,7 +1,6 @@
 ---
 name: Feature request
-about: Create a feature request for the Gnosis Safe
-
+about: Create a feature request for the Yodaplus Multi-Sig Safe
 ---
 
 ## Overview
@@ -11,7 +10,8 @@ about: Create a feature request for the Gnosis Safe
 ## Requirements
 
 ## Screens
- - Figma:
- - Zeplin:
+
+- Figma:
+- Zeplin:
 
 ## Links
