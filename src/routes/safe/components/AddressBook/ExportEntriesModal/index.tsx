@@ -17,6 +17,7 @@ import { Modal } from 'src/components/Modal'
 import Img from 'src/components/layout/Img'
 import Row from 'src/components/layout/Row'
 import HelpInfo from 'src/routes/safe/components/AddressBook/HelpInfo'
+import { transformHashForXinfin } from 'src/utils/xinfin'
 
 import SuccessSvg from './assets/success.svg'
 import ErrorSvg from './assets/error.svg'
@@ -78,7 +79,9 @@ export const ExportEntriesModal = ({ isOpen, onClose }: ExportEntriesModalProps)
       setLoading(true)
       setError('')
       try {
-        setCsvData(jsonToCSV(addressBook))
+        setCsvData(
+          jsonToCSV(addressBook.map(({ address, ...rest }) => ({ ...rest, address: transformHashForXinfin(address) }))),
+        )
       } catch (e) {
         setLoading(false)
         setError(e.message)

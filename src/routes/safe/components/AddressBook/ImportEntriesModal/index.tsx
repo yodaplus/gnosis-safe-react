@@ -9,6 +9,7 @@ import { AddressBookEntry } from 'src/logic/addressBook/model/addressBook'
 import { checksumAddress } from 'src/utils/checksumAddress'
 import HelpInfo from 'src/routes/safe/components/AddressBook/HelpInfo'
 import { validateCsvData, validateFile } from 'src/routes/safe/components/AddressBook/utils'
+import { transformHashFromXinfin } from 'src/utils/xinfin'
 
 const ImportContainer = styled.div`
   flex-direction: column;
@@ -45,14 +46,20 @@ const ImportEntriesModal = ({ importEntryModalHandler, isOpen, onClose }: Import
   }
 
   const handleOnDrop = (parseResults: ParseResult<string>[], file: File) => {
-    // Remove the header row
-    const slicedData = parseResults.slice(1)
-
     const fileError = validateFile(file)
     if (fileError) {
       setImportError(fileError)
       return
     }
+
+    const slicedData = parseResults
+      // Remove the header row
+      .slice(1)
+      // xdc -> 0x transform
+      .map(({ data: [address, ...restArr], ...restObj }) => ({
+        data: [transformHashFromXinfin(address), ...restArr],
+        ...restObj,
+      }))
 
     const dataError = validateCsvData(slicedData)
     if (dataError) {
