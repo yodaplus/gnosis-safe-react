@@ -25,6 +25,10 @@ const xinfin: NetworkConfig = {
     dev: {
       ...baseConfig,
       safeUrl: 'http://localhost:3000',
+      clientGatewayUrl: `https://gnosis.xinfin.yodaplus.net:8001/v1`,
+      txServiceUrl: `https://gnosis.xinfin.yodaplus.net:8000/api/v1`,
+      rpcServiceUrl: `https://gnosis.xinfin.yodaplus.net:8083`,
+      safeAppsRpcServiceUrl: `https://gnosis.xinfin.yodaplus.net:8083`,
     },
     staging: {
       ...baseConfig,

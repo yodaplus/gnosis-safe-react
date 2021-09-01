@@ -1,41 +1,61 @@
+import Onboard from 'bnc-onboard'
 import React, { ReactElement } from 'react'
 
 import Button from 'src/components/layout/Button'
-import { getNetworkId } from 'src/config'
+import { getNetworkName, getNetworkId } from 'src/config'
 import { getWeb3, setWeb3 } from 'src/logic/wallets/getWeb3'
-import { fetchProvider } from 'src/logic/wallets/store/actions'
+import { fetchProvider, removeProvider } from 'src/logic/wallets/store/actions'
+import transactionDataCheck from 'src/logic/wallets/transactionDataCheck'
+import { getSupportedWallets } from 'src/logic/wallets/utils/walletList'
 import { store } from 'src/store'
 import { shouldSwitchNetwork, switchNetwork } from 'src/logic/wallets/utils/network'
 
-const walletSelect = () => {
-  if (!window.ethereum) {
-    return false
-  }
+const networkId = getNetworkId()
+const networkName = getNetworkName().toLowerCase()
 
-  setWeb3(window.ethereum as any)
-  store.dispatch(fetchProvider('XinPay'))
-  return true
-}
+let lastUsedAddress = ''
+let providerName
 
-walletSelect()
+const wallets = getSupportedWallets()
 
-export const onboard = {
-  getState(): any {
-    return {
-      wallet: {
-        provider: window.ethereum,
-        name: 'XinPay',
-        type: 'sdk',
-        connect: () => {},
-      } as any,
-    }
+export const onboard = Onboard({
+  networkId,
+  networkName,
+  subscriptions: {
+    wallet: (wallet) => {
+      if (wallet.provider) {
+        // this function will intialize web3 and store it somewhere available throughout the dapp and
+        // can also instantiate your contracts with the web3 instance
+        setWeb3(wallet.provider)
+        providerName = wallet.name
+      }
+    },
+    address: (address) => {
+      if (!lastUsedAddress && address) {
+        lastUsedAddress = address
+        store.dispatch(fetchProvider(providerName))
+      }
+
+      // we don't have an unsubscribe event so we rely on this
+      if (!address && lastUsedAddress) {
+        lastUsedAddress = ''
+        providerName = undefined
+        store.dispatch(removeProvider())
+      }
+    },
   },
-  walletReset(): any {},
-  walletSelect,
-  walletCheck(): any {
-    return true
+  walletSelect: {
+    description: 'Please select a wallet to connect to Gnosis Safe',
+    wallets,
   },
-}
+  walletCheck: [
+    { checkName: 'derivationPath' },
+    { checkName: 'connect' },
+    { checkName: 'accounts' },
+    { checkName: 'network' },
+    transactionDataCheck(),
+  ],
+})
 
 const checkWallet = async (): Promise<boolean> => {
   const ready = onboard.walletCheck()

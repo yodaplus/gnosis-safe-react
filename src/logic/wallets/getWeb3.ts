@@ -8,9 +8,11 @@ import { NODE_ENV } from 'src/utils/constants'
 import { getRpcServiceUrl } from 'src/config'
 import { isValidCryptoDomainName } from 'src/logic/wallets/ethAddresses'
 import { getAddressFromUnstoppableDomain } from './utils/unstoppableDomains'
+import { ETHEREUM_NETWORK } from 'src/config/networks/network.d'
 
 // This providers have direct relation with name assigned in bnc-onboard configuration
 export enum WALLET_PROVIDER {
+  DETECTED_WALLET = 'DETECTED WALLET',
   XINPAY = 'XINPAY',
   METAMASK = 'METAMASK',
   TORUS = 'TORUS',
@@ -61,6 +63,10 @@ export const getNetworkIdFrom = (web3Provider: Web3): Promise<number> => web3Pro
 const isHardwareWallet = (walletName: string) =>
   sameAddress(WALLET_PROVIDER.LEDGER, walletName) || sameAddress(WALLET_PROVIDER.TREZOR, walletName)
 
+const isXinfinWalletConnect = (walletName: string, network: number) =>
+  sameAddress(WALLET_PROVIDER.WALLETCONNECT, walletName) &&
+  (network === ETHEREUM_NETWORK.APOTHEM || network === ETHEREUM_NETWORK.XINFIN)
+
 const isSmartContractWallet = async (web3Provider: Web3, account: string): Promise<boolean> => {
   const contractCode = await web3Provider.eth.getCode(account)
 
@@ -71,7 +77,9 @@ export const getProviderInfo = async (web3Instance: Web3, providerName = 'Wallet
   const account = await getAccountFrom(web3Instance)
   const network = await getNetworkIdFrom(web3Instance)
   const smartContractWallet = account !== null ? await isSmartContractWallet(web3Instance, account) : false
-  const hardwareWallet = isHardwareWallet(providerName)
+  // hardwareWallet triggers eth_sign usage,
+  // we need to force it for xinfin/wallet connect
+  const hardwareWallet = isHardwareWallet(providerName) || isXinfinWalletConnect(providerName, network)
 
   const available = account !== null
 

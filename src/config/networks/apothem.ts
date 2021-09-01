@@ -25,6 +25,10 @@ const rinkeby: NetworkConfig = {
     dev: {
       ...baseConfig,
       safeUrl: 'http://localhost:3000',
+      clientGatewayUrl: `https://gnosis-apothem.xinfin.yodaplus.net:8001/v1`,
+      txServiceUrl: `https://gnosis-apothem.xinfin.yodaplus.net:8000/api/v1`,
+      rpcServiceUrl: `https://gnosis-apothem.xinfin.yodaplus.net:8083`,
+      safeAppsRpcServiceUrl: `https://gnosis-apothem.xinfin.yodaplus.net:8083`,
     },
     staging: {
       ...baseConfig,

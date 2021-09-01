@@ -17,6 +17,10 @@ import xinpayIcon from './icon-xinpay.png'
 import { WALLET_PROVIDER } from 'src/logic/wallets/getWeb3'
 
 const WALLET_ICONS: { [key in WALLET_PROVIDER]: { src: string; height: number } } = {
+  [WALLET_PROVIDER.DETECTED_WALLET]: {
+    src: xinpayIcon,
+    height: 25,
+  },
   [WALLET_PROVIDER.XINPAY]: {
     src: xinpayIcon,
     height: 25,

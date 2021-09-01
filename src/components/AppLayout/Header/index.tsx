@@ -32,7 +32,7 @@ const HeaderComponent = (): React.ReactElement => {
     const tryToConnectToLastUsedProvider = async () => {
       const lastUsedProvider = await loadLastUsedProvider()
       if (lastUsedProvider) {
-        await onboard.walletSelect()
+        await onboard.walletSelect(lastUsedProvider)
       }
     }
 

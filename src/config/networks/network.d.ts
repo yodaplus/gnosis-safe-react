@@ -15,6 +15,7 @@ export enum WALLETS {
   OPERA = 'opera',
   OPERA_TOUCH = 'operaTouch',
   LATTICE = 'lattice',
+  XINPAY = 'xinpay',
 }
 
 export enum FEATURES {
