@@ -4,6 +4,7 @@ import React, { ReactElement, useState } from 'react'
 import QRIcon from 'src/assets/icons/qrcode.svg'
 import { ScanQRModal } from 'src/components/ScanQRModal'
 import Img from 'src/components/layout/Img'
+import { transformHashFromXinfin } from 'src/utils/xinfin'
 
 const useStyles = makeStyles({
   qrCodeBtn: {
@@ -28,6 +29,7 @@ export const ScanQRWrapper = ({ handleScan }: Props): ReactElement => {
   }
 
   const onScanFinished = (value: string) => {
+    value = value.replace(/^(.*:)?(.*)/, (_, prefix, address) => `${prefix ?? ''}${transformHashFromXinfin(address)}`)
     handleScan(value, closeQrModal)
   }
 
