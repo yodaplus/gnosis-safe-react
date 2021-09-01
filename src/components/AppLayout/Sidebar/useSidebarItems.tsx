@@ -1,6 +1,6 @@
 import React, { useMemo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, useRouteMatch } from 'react-router-dom'
+import { useRouteMatch } from 'react-router-dom'
 
 import { isFeatureEnabled } from 'src/config'
 import { ListItemType } from 'src/components/List'
@@ -9,6 +9,7 @@ import { SAFELIST_ADDRESS, SAFE_ROUTES } from 'src/routes/routes'
 import { FEATURES } from 'src/config/networks/network.d'
 import { currentSafeFeaturesEnabled, currentSafeWithNames } from 'src/logic/safe/store/selectors'
 import { grantedSelector } from 'src/routes/safe/container/selector'
+import { generatePath } from 'src/utils/xinfin'
 
 type SafeRouteWithAction = {
   url: string

@@ -11,6 +11,7 @@ import { SafesMap } from 'src/logic/safe/store/reducer/types/safe'
 import { AppReduxState } from 'src/store'
 import { checksumAddress } from 'src/utils/checksumAddress'
 import { Overwrite } from 'src/types/helpers'
+import { transformHashFromXinfin } from 'src/utils/xinfin'
 
 const safesState = (state: AppReduxState) => state[SAFE_REDUCER_ID]
 
@@ -30,7 +31,7 @@ export const safeAddressFromUrl = (state: AppReduxState): string => {
   })
 
   if (match) {
-    return checksumAddress(match.params.safeAddress).toString()
+    return checksumAddress(transformHashFromXinfin(match.params.safeAddress)).toString()
   }
 
   return ''

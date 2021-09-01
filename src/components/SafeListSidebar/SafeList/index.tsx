@@ -3,7 +3,6 @@ import ListItem from '@material-ui/core/ListItem'
 import { makeStyles } from '@material-ui/core/styles'
 import { Icon } from '@gnosis.pm/safe-react-components'
 import React from 'react'
-import { generatePath } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { DefaultSafe } from 'src/logic/safe/store/reducer/types/safe'
@@ -15,6 +14,7 @@ import { SAFE_ROUTES } from 'src/routes/routes'
 import { AddressWrapper } from 'src/components/SafeListSidebar/SafeList/AddressWrapper'
 import { UnsavedAddress } from 'src/components/SafeListSidebar/SafeList/UnsavedAddress'
 import { SafeRecordWithNames } from 'src/logic/safe/store/selectors'
+import { generatePath } from 'src/utils/xinfin'
 
 export const SIDEBAR_SAFELIST_ROW_TESTID = 'SIDEBAR_SAFELIST_ROW_TESTID'
 

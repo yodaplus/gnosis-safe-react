@@ -1,13 +1,14 @@
 import { GenericModal, Loader } from '@gnosis.pm/safe-react-components'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import { currentSafeFeaturesEnabled, safeAddressFromUrl } from 'src/logic/safe/store/selectors'
 import { wrapInSuspense } from 'src/utils/wrapInSuspense'
 import { SAFE_ROUTES } from 'src/routes/routes'
 import { FEATURES } from 'src/config/networks/network.d'
 import { LoadingContainer } from 'src/components/LoaderContainer'
+import { generatePath } from 'src/utils/xinfin'
 
 export const BALANCES_TAB_BTN_TEST_ID = 'balances-tab-btn'
 export const SETTINGS_TAB_BTN_TEST_ID = 'settings-tab-btn'

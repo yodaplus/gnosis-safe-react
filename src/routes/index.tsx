@@ -1,7 +1,7 @@
 import { Loader } from '@gnosis.pm/safe-react-components'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, Redirect, Route, Switch, useLocation, useRouteMatch } from 'react-router-dom'
+import { Redirect, Route, Switch, useLocation, useRouteMatch } from 'react-router-dom'
 
 import {
   LOAD_ADDRESS,
@@ -16,6 +16,7 @@ import { LoadingContainer } from 'src/components/LoaderContainer'
 import { defaultSafe as defaultSafeSelector } from 'src/logic/safe/store/selectors'
 import { DEFAULT_SAFE_INITIAL_STATE } from 'src/logic/safe/store/reducer/safe'
 import { useAnalytics } from 'src/utils/googleAnalytics'
+import { generatePath } from 'src/utils/xinfin'
 
 const Welcome = React.lazy(() => import('./welcome/container'))
 const Open = React.lazy(() => import('./open/container/Open'))

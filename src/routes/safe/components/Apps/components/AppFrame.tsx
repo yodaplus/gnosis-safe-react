@@ -2,7 +2,7 @@ import React, { ReactElement, useState, useRef, useCallback, useEffect } from 'r
 import styled from 'styled-components'
 import { FixedIcon, Loader, Title, Card } from '@gnosis.pm/safe-react-components'
 import { GetBalanceParams, GetTxBySafeTxHashParams, MethodToResponse, RPCPayload } from '@gnosis.pm/safe-apps-sdk'
-import { generatePath, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { INTERFACE_MESSAGES, Transaction, RequestId, LowercaseNetworks } from '@gnosis.pm/safe-apps-sdk-v1'
 import Web3 from 'web3'
@@ -27,6 +27,7 @@ import { fetchTokenCurrenciesBalances } from 'src/logic/safe/api/fetchTokenCurre
 import { fetchSafeTransaction } from 'src/logic/safe/transactions/api/fetchSafeTransaction'
 import { logError, Errors } from 'src/logic/exceptions/CodedException'
 import { addressBookEntryName } from 'src/logic/addressBook/store/selectors'
+import { generatePath } from 'src/utils/xinfin'
 
 const OwnerDisclaimer = styled.div`
   display: flex;

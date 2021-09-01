@@ -3,7 +3,7 @@ import { backOff } from 'exponential-backoff'
 import queryString from 'query-string'
 import React, { ReactElement, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { generatePath, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { TransactionReceipt } from 'web3-core'
 
 import { SafeDeployment } from 'src/routes/opening'
@@ -30,6 +30,7 @@ import { addOrUpdateSafe } from 'src/logic/safe/store/actions/addOrUpdateSafe'
 import { useAnalytics } from 'src/utils/googleAnalytics'
 import { sleep } from 'src/utils/timer'
 import { txMonitor } from 'src/logic/safe/transactions/txMonitor'
+import { generatePath } from 'src/utils/xinfin'
 
 const SAFE_PENDING_CREATION_STORAGE_KEY = 'SAFE_PENDING_CREATION_STORAGE_KEY'
 

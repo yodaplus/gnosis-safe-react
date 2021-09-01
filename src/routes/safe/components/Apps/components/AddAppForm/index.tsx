@@ -1,7 +1,7 @@
 import { Icon, Link, Loader, Text, TextField } from '@gnosis.pm/safe-react-components'
 import React, { useState, ReactElement, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { SafeApp, StoredSafeApp } from 'src/routes/safe/components/Apps/types'
@@ -17,6 +17,7 @@ import { loadFromStorage, saveToStorage } from 'src/utils/storage'
 import { SAFE_ROUTES } from 'src/routes/routes'
 import { Errors, logError } from 'src/logic/exceptions/CodedException'
 import { safeAddressFromUrl } from 'src/logic/safe/store/selectors'
+import { generatePath } from 'src/utils/xinfin'
 
 const FORM_ID = 'add-apps-form'
 

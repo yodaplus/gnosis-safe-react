@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath } from 'react-router-dom'
 import styled from 'styled-components'
 import { Text } from '@gnosis.pm/safe-react-components'
 
@@ -8,6 +7,7 @@ import Link from 'src/components/layout/Link'
 import { SAFE_ROUTES, LOAD_ADDRESS } from 'src/routes/routes'
 import { addressBookName } from 'src/logic/addressBook/store/selectors'
 import EthHashInfo from 'src/components/EthHashInfo'
+import { generatePath } from 'src/utils/xinfin'
 
 const Wrapper = styled.div`
   display: flex;

@@ -6,7 +6,6 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz'
 import { push } from 'connected-react-router'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { generatePath } from 'react-router-dom'
 
 import { sameString } from 'src/utils/strings'
 import { ADDRESS_BOOK_DEFAULT_NAME } from 'src/logic/addressBook/model/addressBook'
@@ -15,6 +14,7 @@ import { SAFE_ROUTES } from 'src/routes/routes'
 import { safeAddressFromUrl } from 'src/logic/safe/store/selectors'
 import { xs } from 'src/theme/variables'
 import { grantedSelector } from 'src/routes/safe/container/selector'
+import { generatePath } from 'src/utils/xinfin'
 
 const useStyles = makeStyles(
   createStyles({

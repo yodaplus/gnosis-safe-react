@@ -2,7 +2,7 @@ import { IconText, Loader, Menu, Text, Icon, Breadcrumb, BreadcrumbElement } fro
 import IconButton from '@material-ui/core/IconButton'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link, generatePath } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import Col from 'src/components/layout/Col'
@@ -11,6 +11,7 @@ import { safeAddressFromUrl } from 'src/logic/safe/store/selectors'
 import AppCard from 'src/routes/safe/components/Apps/components/AppCard'
 import AddAppIcon from 'src/routes/safe/components/Apps/assets/addApp.svg'
 import { SAFE_ROUTES } from 'src/routes/routes'
+import { generatePath } from 'src/utils/xinfin'
 
 import { useAppList } from '../hooks/useAppList'
 import { SAFE_APP_FETCH_STATUS, SafeApp } from '../types'

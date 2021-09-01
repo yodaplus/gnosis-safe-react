@@ -3,7 +3,7 @@ import { LoadingContainer } from 'src/components/LoaderContainer'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Route, Switch, useRouteMatch } from 'react-router-dom'
 
 import { styles } from './style'
 
@@ -14,6 +14,7 @@ import Col from 'src/components/layout/Col'
 import Span from 'src/components/layout/Span'
 import { currentSafeWithNames } from 'src/logic/safe/store/selectors'
 import { grantedSelector } from 'src/routes/safe/container/selector'
+import { generatePath } from 'src/utils/xinfin'
 
 const Advanced = React.lazy(() => import('./Advanced'))
 const SpendingLimitSettings = React.lazy(() => import('./SpendingLimit'))

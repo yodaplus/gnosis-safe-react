@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { generatePath, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import Layout from 'src/routes/load/components/Layout'
 import { AddressBookEntry, makeAddressBookEntry } from 'src/logic/addressBook/model/addressBook'
@@ -18,6 +18,7 @@ import { checksumAddress } from 'src/utils/checksumAddress'
 import { isValidAddress } from 'src/utils/isValidAddress'
 import { providerNameSelector, userAccountSelector } from 'src/logic/wallets/store/selectors'
 import { addOrUpdateSafe } from 'src/logic/safe/store/actions/addOrUpdateSafe'
+import { generatePath } from 'src/utils/xinfin'
 
 export const loadSafe = async (safeAddress: string, addSafe: (safe: SafeRecordProps) => void): Promise<void> => {
   const safeProps = await buildSafe(safeAddress)

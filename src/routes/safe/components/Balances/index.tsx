@@ -1,7 +1,7 @@
 import { Breadcrumb, BreadcrumbElement, Menu } from '@gnosis.pm/safe-react-components'
 import React, { ReactElement, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { generatePath, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
+import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 
 import Col from 'src/components/layout/Col'
 import Modal from 'src/components/Modal'
@@ -15,6 +15,7 @@ import { currentSafeWithNames } from 'src/logic/safe/store/selectors'
 import { wrapInSuspense } from 'src/utils/wrapInSuspense'
 import { useFetchTokens } from 'src/logic/safe/hooks/useFetchTokens'
 import { FEATURES } from 'src/config/networks/network.d'
+import { generatePath } from 'src/utils/xinfin'
 
 const Collectibles = React.lazy(() => import('src/routes/safe/components/Balances/Collectibles'))
 const Coins = React.lazy(() => import('src/routes/safe/components/Balances/Coins'))

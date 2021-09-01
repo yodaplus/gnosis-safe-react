@@ -1,5 +1,4 @@
 import { push } from 'connected-react-router'
-import { generatePath } from 'react-router-dom'
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
@@ -34,6 +33,7 @@ import { checkIfOffChainSignatureIsPossible, getPreValidatedSignatures } from 's
 import { TxParameters } from 'src/routes/safe/container/hooks/useTransactionParameters'
 import { isTxPendingError } from 'src/logic/wallets/getWeb3'
 import { Errors, logError } from 'src/logic/exceptions/CodedException'
+import { generatePath } from 'src/utils/xinfin'
 
 export interface CreateTransactionArgs {
   navigateToTransactionsTab?: boolean
