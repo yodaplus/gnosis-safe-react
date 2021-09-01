@@ -1,11 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 import cn from 'classnames'
 import * as React from 'react'
-import { useDispatch } from 'react-redux'
 
 import GnoButtonLink from 'src/components/layout/ButtonLink'
 import Link from 'src/components/layout/Link'
-import { openCookieBanner } from 'src/logic/cookies/store/actions/openCookieBanner'
 import { screenSm, secondary, sm } from 'src/theme/variables'
 
 const useStyles = makeStyles({
@@ -24,6 +22,7 @@ const useStyles = makeStyles({
   item: {
     color: 'rgba(0, 0, 0, 0.54)',
     fontSize: '13px',
+    textDecoration: 'none',
   },
   link: {
     color: secondary,
@@ -42,50 +41,40 @@ const useStyles = makeStyles({
   },
 } as any)
 
-const appVersion = process.env.REACT_APP_APP_VERSION ? `v${process.env.REACT_APP_APP_VERSION} ` : 'Versions'
+// const appVersion = process.env.REACT_APP_APP_VERSION ? `v${process.env.REACT_APP_APP_VERSION} ` : 'Versions'
+const appVersion = 'Beta Version'
 
 const Footer = (): React.ReactElement => {
   const date = new Date()
   const classes = useStyles()
-  const dispatch = useDispatch()
-
-  const openCookiesHandler = () => {
-    dispatch(openCookieBanner({ cookieBannerOpen: true }))
-  }
 
   return (
     <footer className={classes.footer}>
-      <span className={classes.item}>©{date.getFullYear()} Gnosis</span>
+      <span className={classes.item}>©{date.getFullYear()} Yodaplus</span>
       <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/terms">
+      <Link className={cn(classes.item)} target="_blank">
         Terms
       </Link>
       <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/privacy">
+      <Link className={cn(classes.item)} target="_blank">
         Privacy
       </Link>
       <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/licenses">
+      <Link className={cn(classes.item)} target="_blank">
         Licenses
       </Link>
       <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/imprint">
+      <Link className={cn(classes.item)} target="_blank">
         Imprint
       </Link>
       <span className={classes.sep}>|</span>
-      <Link className={cn(classes.item, classes.link)} target="_blank" to="https://gnosis-safe.io/cookie">
+      <Link className={cn(classes.item)} target="_blank">
         Cookie Policy
       </Link>
       <span className={classes.sep}>-</span>
-      <GnoButtonLink className={cn(classes.item, classes.link, classes.buttonLink)} onClick={openCookiesHandler}>
-        Preferences
-      </GnoButtonLink>
+      <GnoButtonLink className={cn(classes.item)}>Preferences</GnoButtonLink>
       <span className={classes.sep}>|</span>
-      <Link
-        className={cn(classes.item, classes.link)}
-        target="_blank"
-        to="https://github.com/gnosis/safe-react/releases"
-      >
+      <Link className={cn(classes.item)} target="_blank">
         {appVersion}
       </Link>
     </footer>
