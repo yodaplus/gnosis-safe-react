@@ -71,8 +71,8 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
       <Title size="xs">
         {isOldMultisigMigration ? (
           <>
-            We will replicate the owner structure from your existing Gnosis MultiSig to let you test the new interface.
-            As soon as you feel comfortable, start moving funds to your new Safe.
+            We will replicate the owner structure from your existing Yodaplus MultiSig to let you test the new
+            interface. As soon as you feel comfortable, start moving funds to your new Safe.
           </>
         ) : (
           <>

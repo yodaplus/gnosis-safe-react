@@ -114,13 +114,6 @@ export const MobileNotSupported = ({ onClose }: Props): ReactElement => {
           <StyledCard>
             <Text size="lg">The Yodaplus Multi-Sig Safe web app is not optimized for mobile.</Text>
             <Text size="lg">Get the mobile app for a better experience.</Text>
-            <Button size="md" color="primary" variant="contained">
-              <StyledLink target="_blank" href="https://gnosis-safe.io/#mobile" rel="noopener noreferrer">
-                <Text color="white" size="xl">
-                  Get the App
-                </Text>
-              </StyledLink>
-            </Button>
           </StyledCard>
 
           <StyledImg src={Phone} alt="Phone" />

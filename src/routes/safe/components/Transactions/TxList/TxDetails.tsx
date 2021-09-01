@@ -48,24 +48,6 @@ const TxDataGroup = ({ txDetails }: { txDetails: ExpandedTxDetails }): ReactElem
     return (
       <>
         <NormalBreakingText size="xl">{message}</NormalBreakingText>
-        {!isTxExecuted && (
-          <>
-            <br />
-            <Link
-              href="https://help.gnosis-safe.io/en/articles/4738501-why-do-i-need-to-pay-for-cancelling-a-transaction"
-              target="_blank"
-              rel="noreferrer"
-              title="Why do I need to pay for rejecting a transaction?"
-            >
-              <AlignItemsWithMargin>
-                <Text size="xl" as="span" color="primary">
-                  Why do I need to pay for rejecting a transaction?
-                </Text>
-                <Icon size="sm" type="externalLink" color="primary" />
-              </AlignItemsWithMargin>
-            </Link>
-          </>
-        )}
       </>
     )
   }

@@ -193,16 +193,6 @@ export const EditTxParametersForm = ({
                       disabled={!areEthereumParamsVisible(parametersStatus)}
                     />
                   </EthereumOptions>
-
-                  <StyledLink
-                    href="https://help.gnosis-safe.io/en/articles/4738445-configure-advanced-transaction-parameters-manually"
-                    target="_blank"
-                  >
-                    <Text size="xl" color="primary">
-                      How can I configure these parameters manually?
-                    </Text>
-                    <Icon size="sm" type="externalLink" color="primary" />
-                  </StyledLink>
                 </>
               )}
 

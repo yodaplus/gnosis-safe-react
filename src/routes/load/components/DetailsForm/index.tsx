@@ -86,21 +86,10 @@ const DetailsForm = ({ errors, form }: DetailsFormProps): ReactElement => {
       <Block margin="md">
         <Paragraph color="primary" noMargin size="md">
           You are about to add an existing Yodaplus Multi-Sig Safe. First, choose a name and enter the Safe address. The
-          name is only stored locally and will never be shared with Gnosis or any third parties.
+          name is only stored locally and will never be shared with Yodaplus or any third parties.
           <br />
           Your connected wallet does not have to be the owner of this Safe. In this case, the interface will provide you
           a read-only view.
-        </Paragraph>
-
-        <Paragraph color="primary" size="md" className={classes.links}>
-          Don&apos;t have the address of the Safe you created?{' '}
-          <a
-            href="https://help.gnosis-safe.io/en/articles/4971293-i-don-t-remember-my-safe-address-where-can-i-find-it"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            This article explains how to find it.
-          </a>
         </Paragraph>
       </Block>
       <Block className={classes.root}>
@@ -144,19 +133,6 @@ const DetailsForm = ({ errors, form }: DetailsFormProps): ReactElement => {
         <Col center="xs" className={classes} middle="xs" xs={1}>
           <ScanQRWrapper handleScan={handleScan} />
         </Col>
-      </Block>
-      <Block margin="sm">
-        <Paragraph className={classes.links} color="primary" noMargin size="md">
-          By continuing you consent to the{' '}
-          <a href="https://gnosis-safe.io/terms" rel="noopener noreferrer" target="_blank">
-            terms of use
-          </a>{' '}
-          and{' '}
-          <a href="https://gnosis-safe.io/privacy" rel="noopener noreferrer" target="_blank">
-            privacy policy
-          </a>
-          .
-        </Paragraph>
       </Block>
     </>
   )

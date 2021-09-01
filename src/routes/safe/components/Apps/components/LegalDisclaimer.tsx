@@ -15,14 +15,6 @@ const LegalDisclaimer = ({ onCancel, onConfirm }: OwnProps): JSX.Element => (
           any loss you may suffer in connection with interacting with the apps, which is at your own risk. You must read
           our Terms, which contain more detailed provisions binding on you relating to the apps.
         </Text>
-        <br />
-        <Text size="md">
-          I have read and understood the{' '}
-          <a href="https://gnosis-safe.io/terms" rel="noopener noreferrer" target="_blank">
-            Terms
-          </a>{' '}
-          and this Disclaimer, and agree to be bound by them.
-        </Text>
       </>
     }
     onCancel={onCancel}

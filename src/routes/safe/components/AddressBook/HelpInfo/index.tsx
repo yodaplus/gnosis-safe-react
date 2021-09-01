@@ -10,18 +10,6 @@ const StyledIcon = styled(Icon)`
   }
 `
 
-const HelpInfo = (): ReactElement => (
-  <Link
-    href="https://help.gnosis-safe.io/en/articles/5299068-address-book-export-and-import"
-    target="_blank"
-    rel="noreferrer"
-    title="Export & import info"
-  >
-    <Text size="xl" as="span" color="primary">
-      Learn about the address book import and export
-    </Text>
-    <StyledIcon size="sm" type="externalLink" color="primary" />
-  </Link>
-)
+const HelpInfo = (): ReactElement => <></>
 
 export default HelpInfo
