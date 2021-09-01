@@ -1,8 +1,7 @@
-import { Icon, Link, Text } from '@gnosis.pm/safe-react-components'
+import { Text } from '@gnosis.pm/safe-react-components'
 import { makeStyles } from '@material-ui/core/styles'
 import React, { ReactElement, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import styled from 'styled-components'
 
 import { styles } from './style'
 
@@ -21,19 +20,13 @@ import { makeAddressBookEntry } from 'src/logic/addressBook/model/addressBook'
 import { addressBookAddOrUpdate } from 'src/logic/addressBook/store/actions'
 import enqueueSnackbar from 'src/logic/notifications/store/actions/enqueueSnackbar'
 import { getNotificationsFromTxType, enhanceSnackbarForAction } from 'src/logic/notifications'
-import { sameAddress } from 'src/logic/wallets/ethAddresses'
 import { TX_NOTIFICATION_TYPES } from 'src/logic/safe/transactions'
 import { UpdateSafeModal } from 'src/routes/safe/components/Settings/UpdateSafeModal'
 import { grantedSelector } from 'src/routes/safe/container/selector'
 import { updateSafe } from 'src/logic/safe/store/actions/updateSafe'
 
-import {
-  currentSafeWithNames,
-  latestMasterContractVersion as latestMasterContractVersionSelector,
-} from 'src/logic/safe/store/selectors'
+import { currentSafeWithNames } from 'src/logic/safe/store/selectors'
 import { useAnalytics, SAFE_NAVIGATION_EVENT } from 'src/utils/googleAnalytics'
-import { fetchMasterCopies, MasterCopy, MasterCopyDeployer } from 'src/logic/contracts/api/masterCopies'
-import { getMasterCopyAddressFromProxyAddress } from 'src/logic/contracts/safeContracts'
 
 export const SAFE_NAME_INPUT_TEST_ID = 'safe-name-input'
 export const SAFE_NAME_SUBMIT_BTN_TEST_ID = 'change-safe-name-btn'
@@ -41,19 +34,9 @@ export const SAFE_NAME_UPDATE_SAFE_BTN_TEST_ID = 'update-safe-name-btn'
 
 const useStyles = makeStyles(styles)
 
-const StyledLink = styled(Link)`
-  margin: 12px 0 0 0;
-`
-const StyledIcon = styled(Icon)`
-  position: relative;
-  top: 3px;
-  left: 6px;
-`
-
 const SafeDetails = (): ReactElement => {
   const classes = useStyles()
   const isUserOwner = useSelector(grantedSelector)
-  const latestMasterContractVersion = useSelector(latestMasterContractVersionSelector)
   const {
     address: safeAddress,
     name: safeName,
@@ -64,7 +47,6 @@ const SafeDetails = (): ReactElement => {
   const { trackEvent } = useAnalytics()
 
   const [isModalOpen, setModalOpen] = useState(false)
-  const [safeInfo, setSafeInfo] = useState<MasterCopy | undefined>()
 
   const toggleModal = () => {
     setModalOpen((prevOpen) => !prevOpen)
@@ -84,39 +66,16 @@ const SafeDetails = (): ReactElement => {
   }
 
   const getSafeVersion = () => {
-    if (!safeInfo) {
-      return ''
-    }
-    return safeInfo.deployer === MasterCopyDeployer.GNOSIS
-      ? safeCurrentVersion
-      : `${safeCurrentVersion}-${safeInfo.deployer}`
+    return 'beta'
   }
 
   const getSafeVersionUpdate = () => {
-    if (!safeInfo) {
-      return ''
-    }
-    return safeInfo.deployer === MasterCopyDeployer.GNOSIS && safeNeedsUpdate
-      ? ` (there's a newer version: ${latestMasterContractVersion})`
-      : ''
+    return ''
   }
 
   useEffect(() => {
     trackEvent({ category: SAFE_NAVIGATION_EVENT, action: 'Settings', label: 'Details' })
   }, [trackEvent])
-
-  useEffect(() => {
-    const getMasterCopyInfo = async () => {
-      const masterCopies = await fetchMasterCopies()
-      const masterCopyAddress = await getMasterCopyAddressFromProxyAddress(safeAddress)
-      const masterCopy = masterCopies?.find((mc) => sameAddress(mc.address, masterCopyAddress))
-      setSafeInfo(masterCopy)
-    }
-
-    if (safeAddress) {
-      getMasterCopyInfo()
-    }
-  }, [safeAddress])
 
   return (
     <GnoForm onSubmit={handleSubmit}>
@@ -125,13 +84,10 @@ const SafeDetails = (): ReactElement => {
           <Block className={classes.formContainer}>
             <Heading tag="h2">Contract Version</Heading>
             <Row align="end" grow>
-              <StyledLink rel="noreferrer noopener" target="_blank" href={safeInfo?.deployerRepoUrl}>
-                <Text size="xl" as="span" color="primary">
-                  {getSafeVersion()}
-                  {getSafeVersionUpdate()}
-                </Text>
-                <StyledIcon size="sm" type="externalLink" color="primary" />
-              </StyledLink>
+              <Text size="xl" as="span" color="primary">
+                {getSafeVersion()}
+                {getSafeVersionUpdate()}
+              </Text>
             </Row>
             {safeNeedsUpdate && isUserOwner ? (
               <Row align="end" grow>
