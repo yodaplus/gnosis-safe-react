@@ -7,7 +7,7 @@ const PAGE_URL = `${window.location.protocol}//${window.location.hostname}`
 const baseConfig: EnvironmentSettings = {
   clientGatewayUrl: `${PAGE_URL}:8001/v1`,
   txServiceUrl: `${PAGE_URL}:8000/api/v1`,
-  safeUrl: `https://gnosis-apothem.xinfin.yodaplus.net`,
+  safeUrl: `https://safe-apothem.xinfin.yodaplus.net`,
   gasPriceOracle: {
     url: `https://ethgasstation.info/json/ethgasAPI.json?api-key=${ETHGASSTATION_API_KEY}`,
     gasParameter: 'average',
