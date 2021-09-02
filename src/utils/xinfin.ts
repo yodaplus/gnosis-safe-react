@@ -13,5 +13,10 @@ export const generatePath: typeof generatePathOriginal = (path, params) => {
   if (params && 'safeAddress' in params) {
     ;(params as any).safeAddress = transformHashForXinfin((params as any).safeAddress)
   }
-  return generatePathOriginal(path, params)
+
+  try {
+    return generatePathOriginal(path, params)
+  } catch {
+    return ''
+  }
 }
