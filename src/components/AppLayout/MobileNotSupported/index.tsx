@@ -113,10 +113,8 @@ export const MobileNotSupported = ({ onClose }: Props): ReactElement => {
         <ModalApp>
           <StyledCard>
             <Text size="lg">The Yodaplus Multi-Sig Safe web app is not optimized for mobile.</Text>
-            <Text size="lg">Get the mobile app for a better experience.</Text>
           </StyledCard>
 
-          <StyledImg src={Phone} alt="Phone" />
           <StyledButton size="md" variant="outlined" color="primary" onClick={onClose}>
             <StyledCloseIcon size="md" type="cross" />
           </StyledButton>
