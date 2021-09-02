@@ -135,7 +135,7 @@ export const ExportEntriesModal = ({ isOpen, onClose }: ExportEntriesModalProps)
             Retry
           </Button>
         ) : (
-          <CSVDownloader data={csvData} bom={true} filename={`gnosis-safe-address-book-${date}`} type="link">
+          <CSVDownloader data={csvData} bom={true} filename={`yodaplus-safe-address-book-${date}`} type="link">
             <Button color="primary" size="md" disabled={loading} onClick={handleClose}>
               {loading && <StyledLoader color="secondaryLight" size="xs" />}
               Download
