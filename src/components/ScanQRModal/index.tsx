@@ -14,6 +14,7 @@ import Hairline from 'src/components/layout/Hairline'
 import Paragraph from 'src/components/layout/Paragraph'
 import Row from 'src/components/layout/Row'
 import { useEffect, useState } from 'react'
+import { transformHashFromXinfin } from 'src/utils/xinfin'
 
 const useStyles = makeStyles(styles)
 
@@ -54,6 +55,10 @@ export const ScanQRModal = ({ isOpen, onClose, onScan }: Props): React.ReactElem
     }
 
     if (successData) {
+      successData = successData.replace(
+        /^(.*:)?(.*)/,
+        (_, prefix, address) => `${prefix ?? ''}${transformHashFromXinfin(address)}`,
+      )
       onScan(successData)
     } else if (cameraBlocked) {
       setError('The QR could not be read')

@@ -29,7 +29,6 @@ export const ScanQRWrapper = ({ handleScan }: Props): ReactElement => {
   }
 
   const onScanFinished = (value: string) => {
-    value = value.replace(/^(.*:)?(.*)/, (_, prefix, address) => `${prefix ?? ''}${transformHashFromXinfin(address)}`)
     handleScan(value, closeQrModal)
   }
 

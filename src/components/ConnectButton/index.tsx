@@ -46,6 +46,8 @@ export const onboard = Onboard({
   },
   walletSelect: {
     description: 'Please select a wallet to connect to Yodaplus Multi-Sig Safe',
+    explanation:
+      'Wallets are used to send, receive, and store digital assets. Wallets come in many forms. They are either built into your browser, an extension added to your browser, a piece of hardware plugged into your computer or even an app on your phone.',
     wallets,
   },
   walletCheck: [
