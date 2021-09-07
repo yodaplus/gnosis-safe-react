@@ -23,6 +23,12 @@ export const onboard = Onboard({
   networkName,
   subscriptions: {
     wallet: (wallet) => {
+      if (wallet.provider && 'qrcodeModalOptions' in wallet.provider) {
+        wallet.provider.connector._qrcodeModalOptions = {
+          desktopLinks: [],
+        }
+      }
+
       if (wallet.provider) {
         // this function will intialize web3 and store it somewhere available throughout the dapp and
         // can also instantiate your contracts with the web3 instance
