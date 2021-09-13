@@ -20,7 +20,7 @@ const baseConfig: EnvironmentSettings = {
   networkExplorerApiUrl: 'https://explorer.apothem.network/publicAPI',
 }
 
-const rinkeby: NetworkConfig = {
+const apothem: NetworkConfig = {
   environment: {
     dev: {
       ...baseConfig,
@@ -55,4 +55,4 @@ const rinkeby: NetworkConfig = {
   disabledFeatures: [FEATURES.CONTRACT_INTERACTION, FEATURES.ERC1155, FEATURES.SAFE_APPS, FEATURES.SPENDING_LIMIT],
 }
 
-export default rinkeby
+export default apothem
