@@ -6,7 +6,7 @@ const PAGE_URL = `${window.location.protocol}//${window.location.hostname}`
 const baseConfig: EnvironmentSettings = {
   clientGatewayUrl: `${PAGE_URL}:8001/v1`,
   txServiceUrl: `${PAGE_URL}:8000/api/v1`,
-  safeUrl: `https://safe.xinfin.yodaplus.net`,
+  safeUrl: `https://mainnet.yplusvault.com`,
   gasPrice: 1_000_000_000,
   rpcServiceUrl: `${PAGE_URL}:8083`,
   safeAppsRpcServiceUrl: `${PAGE_URL}:8083`,
@@ -20,10 +20,10 @@ const xinfin: NetworkConfig = {
     dev: {
       ...baseConfig,
       safeUrl: 'http://localhost:3000',
-      clientGatewayUrl: `https://safe.xinfin.yodaplus.net:8001/v1`,
-      txServiceUrl: `https://safe.xinfin.yodaplus.net:8000/api/v1`,
-      rpcServiceUrl: `https://safe.xinfin.yodaplus.net:8083`,
-      safeAppsRpcServiceUrl: `https://safe.xinfin.yodaplus.net:8083`,
+      clientGatewayUrl: `https://mainnet.yplusvault.com:8001/v1`,
+      txServiceUrl: `https://mainnet.yplusvault.com:8000/api/v1`,
+      rpcServiceUrl: `https://mainnet.yplusvault.com:8083`,
+      safeAppsRpcServiceUrl: `https://mainnet.yplusvault.com:8083`,
     },
     staging: {
       ...baseConfig,

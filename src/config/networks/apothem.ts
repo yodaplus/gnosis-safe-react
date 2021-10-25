@@ -6,7 +6,7 @@ const PAGE_URL = `${window.location.protocol}//${window.location.hostname}`
 const baseConfig: EnvironmentSettings = {
   clientGatewayUrl: `${PAGE_URL}:8001/v1`,
   txServiceUrl: `${PAGE_URL}:8000/api/v1`,
-  safeUrl: `https://safe-apothem.xinfin.yodaplus.net`,
+  safeUrl: `https://apothem.yplusvault.com`,
   gasPrice: 1_000_000_000,
   rpcServiceUrl: `${PAGE_URL}:8083`,
   safeAppsRpcServiceUrl: `${PAGE_URL}:8083`,
@@ -20,10 +20,10 @@ const apothem: NetworkConfig = {
     dev: {
       ...baseConfig,
       safeUrl: 'http://localhost:3000',
-      clientGatewayUrl: `https://safe-apothem.xinfin.yodaplus.net:8001/v1`,
-      txServiceUrl: `https://safe-apothem.xinfin.yodaplus.net:8000/api/v1`,
-      rpcServiceUrl: `https://safe-apothem.xinfin.yodaplus.net:8083`,
-      safeAppsRpcServiceUrl: `https://safe-apothem.xinfin.yodaplus.net:8083`,
+      clientGatewayUrl: `https://apothem.yplusvault.com:8001/v1`,
+      txServiceUrl: `https://apothem.yplusvault.com:8000/api/v1`,
+      rpcServiceUrl: `https://apothem.yplusvault.com:8083`,
+      safeAppsRpcServiceUrl: `https://apothem.yplusvault.com:8083`,
     },
     staging: {
       ...baseConfig,
