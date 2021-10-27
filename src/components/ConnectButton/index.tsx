@@ -9,6 +9,7 @@ import transactionDataCheck from 'src/logic/wallets/transactionDataCheck'
 import { getSupportedWallets } from 'src/logic/wallets/utils/walletList'
 import { store } from 'src/store'
 import { shouldSwitchNetwork, switchNetwork } from 'src/logic/wallets/utils/network'
+import { transformProviderFromXinfin } from 'src/utils/xinfin'
 
 const networkId = getNetworkId()
 const networkName = getNetworkName().toLowerCase()
@@ -32,7 +33,7 @@ export const onboard = Onboard({
       if (wallet.provider) {
         // this function will intialize web3 and store it somewhere available throughout the dapp and
         // can also instantiate your contracts with the web3 instance
-        setWeb3(wallet.provider)
+        setWeb3(transformProviderFromXinfin(wallet.provider))
         providerName = wallet.name
       }
     },

@@ -20,3 +20,38 @@ export const generatePath: typeof generatePathOriginal = (path, params) => {
     return ''
   }
 }
+
+const traverseXdcObjRec = (obj) => {
+  const mapValue = (value) => {
+    if (typeof value === 'string' && /^xdc/.test(value)) {
+      return value.replace(/^xdc/, '0x')
+    }
+
+    if (typeof value === 'object') {
+      return traverseXdcObjRec(value)
+    }
+
+    return value
+  }
+
+  if (obj instanceof Array) {
+    return obj.map(mapValue)
+  }
+
+  if (typeof obj === 'object' && obj !== null) {
+    return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, mapValue(value)]))
+  }
+
+  return obj
+}
+
+export const transformProviderFromXinfin = (provider: any) => {
+  const _sendAsync = provider.constructor.prototype.sendAsync
+  provider.sendAsync = function (payload, callback) {
+    return _sendAsync.call(this, payload, (error, response) => {
+      callback(error, traverseXdcObjRec(response))
+    })
+  }
+
+  return provider
+}
