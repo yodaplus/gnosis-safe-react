@@ -26,9 +26,9 @@ const wallets: Wallet[] = [
 
 const customWallets: WalletModule[] = [
   {
-    name: 'XinPay',
-    iconSrc: WALLET_ICONS[WALLET_PROVIDER.XINPAY].src,
-    iconSrcSet: WALLET_ICONS[WALLET_PROVIDER.XINPAY].src,
+    name: 'XDCPay',
+    iconSrc: WALLET_ICONS[WALLET_PROVIDER.XDCPAY].src,
+    iconSrcSet: WALLET_ICONS[WALLET_PROVIDER.XDCPAY].src,
     wallet: async (helpers) => {
       const { createModernProviderInterface } = helpers
       const provider = (window as any).ethereum

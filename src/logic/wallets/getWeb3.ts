@@ -13,7 +13,7 @@ import { ETHEREUM_NETWORK } from 'src/config/networks/network.d'
 // This providers have direct relation with name assigned in bnc-onboard configuration
 export enum WALLET_PROVIDER {
   DETECTED_WALLET = 'DETECTED WALLET',
-  XINPAY = 'XINPAY',
+  XDCPAY = 'XDCPAY',
   METAMASK = 'METAMASK',
   TORUS = 'TORUS',
   PORTIS = 'PORTIS',

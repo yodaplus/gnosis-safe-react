@@ -21,7 +21,7 @@ const WALLET_ICONS: { [key in WALLET_PROVIDER]: { src: string; height: number } 
     src: xinpayIcon,
     height: 25,
   },
-  [WALLET_PROVIDER.XINPAY]: {
+  [WALLET_PROVIDER.XDCPAY]: {
     src: xinpayIcon,
     height: 25,
   },
