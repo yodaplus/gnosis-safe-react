@@ -4742,10 +4742,10 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
-"@yodaplus/safe-deployments@^1.3.6":
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/@yodaplus/safe-deployments/-/safe-deployments-1.3.6.tgz#83822b4e85432312480c30fe58c02b8800d85f5f"
-  integrity sha512-E7jXIqDS10vAdvzyeu/52OBBAw08VZhr5CuYUBud/CnF/qBXmFAakGc9rtArbLzK6YkJeUiVSxukO74X4xpr8w==
+"@yodaplus/safe-deployments@^1.3.7":
+  version "1.3.7"
+  resolved "https://registry.yarnpkg.com/@yodaplus/safe-deployments/-/safe-deployments-1.3.7.tgz#8bcb0e566cbbd5929d57a032c74aeb6a683e75f9"
+  integrity sha512-47BZEcMc3gZraTh90yzWd/h2hDdvitisG1gDDCNxlekC4LT+Pm5pH9lZCi5ipfQetH80ywXkHOgiZokS9O03iQ==
 
 abab@^1.0.0:
   version "1.0.4"
