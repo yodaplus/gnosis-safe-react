@@ -1,6 +1,7 @@
 import { AbstractProvider } from 'web3-core'
+import semverSatisfies from 'semver/functions/satisfies'
 
-import { getWeb3 } from 'src/logic/wallets/getWeb3'
+import { getWeb3, getNetworkIdFrom } from 'src/logic/wallets/getWeb3'
 import { EMPTY_DATA } from 'src/logic/wallets/ethTransactions'
 import { TxArgs } from 'src/logic/safe/store/models/types/transaction'
 import { adjustV } from './utils'
@@ -14,11 +15,24 @@ const EIP712_DOMAIN_BEFORE_V130 = [
   },
 ]
 
+const EIP712_DOMAIN = [
+  {
+    type: 'uint256',
+    name: 'chainId',
+  },
+  {
+    type: 'address',
+    name: 'verifyingContract',
+  },
+]
+
 // This function returns the types structure for signing offchain messages
 // following EIP712
-export const getEip712MessageTypes = () => {
+export const getEip712MessageTypes = (safeVersion: string) => {
+  const eip712WithChainId = semverSatisfies(safeVersion, '>=1.3.1')
+
   return {
-    EIP712Domain: EIP712_DOMAIN_BEFORE_V130,
+    EIP712Domain: eip712WithChainId ? EIP712_DOMAIN : EIP712_DOMAIN_BEFORE_V130,
     SafeTx: [
       { type: 'address', name: 'to' },
       { type: 'uint256', name: 'value' },
@@ -41,6 +55,7 @@ interface SigningTxArgs extends TxArgs {
 
 export const generateTypedDataFrom = async ({
   safeAddress,
+  safeVersion,
   baseGas,
   data,
   gasPrice,
@@ -52,10 +67,14 @@ export const generateTypedDataFrom = async ({
   to,
   valueInWei,
 }: SigningTxArgs) => {
+  const web3 = getWeb3()
+  const networkId = await getNetworkIdFrom(web3)
+  const eip712WithChainId = semverSatisfies(safeVersion, '>=1.3.1')
+
   const typedData = {
-    types: getEip712MessageTypes(),
+    types: getEip712MessageTypes(safeVersion),
     domain: {
-      chainId: undefined,
+      chainId: eip712WithChainId ? networkId : undefined,
       verifyingContract: safeAddress,
     },
     primaryType: 'SafeTx',
