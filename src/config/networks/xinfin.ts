@@ -47,7 +47,7 @@ const xinfin: NetworkConfig = {
     },
   },
   disabledWallets: [WALLETS.FORTMATIC],
-  disabledFeatures: [FEATURES.CONTRACT_INTERACTION, FEATURES.ERC1155, FEATURES.SAFE_APPS, FEATURES.SPENDING_LIMIT],
+  disabledFeatures: [FEATURES.ERC1155, FEATURES.SPENDING_LIMIT],
 }
 
 export default xinfin
