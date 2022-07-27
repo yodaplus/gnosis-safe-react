@@ -1,5 +1,5 @@
 import abiDecoder from 'abi-decoder'
-import { getProxyFactoryDeployment } from '@yodaplus/safe-deployments'
+import { getProxyFactoryDeployment } from '@yplusvault/contract-deployments'
 import { Log } from 'web3-core'
 import { checksumAddress } from 'src/utils/checksumAddress'
 

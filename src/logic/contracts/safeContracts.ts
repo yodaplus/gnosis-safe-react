@@ -5,7 +5,7 @@ import {
   getProxyFactoryDeployment,
   getFallbackHandlerDeployment,
   getMultiSendCallOnlyDeployment,
-} from '@yodaplus/safe-deployments'
+} from '@yplusvault/contract-deployments'
 import Web3 from 'web3'
 import { AbiItem } from 'web3-utils'
 
