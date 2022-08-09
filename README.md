@@ -1,3 +1,8 @@
+# XinFin-related notes
+
+This repo was forked from Gnosis for the purpose of XinFin depoyment. 
+
+
 # Gnosis Safe
 
 The most trusted platform to store digital assets on Ethereum. More info at [gnosis-safe.io](https://gnosis-safe.io/)
