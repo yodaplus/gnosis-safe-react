@@ -275,7 +275,7 @@ const yplusVaultMetadata = {
 const onboardAccountCentre: AccountCenterOptions = {
   desktop: {
     position: 'bottomRight',
-    enabled: true,
+    enabled: false,
     minimal: false,
   },
   mobile: {
@@ -287,7 +287,7 @@ const onboardAccountCentre: AccountCenterOptions = {
 
 const connectOptions: ConnectModalOptions = {
   showSidebar: true,
-  //autoConnectLastWallet: true
+  autoConnectLastWallet: true,
 }
 
 const onboard = Onboard({
