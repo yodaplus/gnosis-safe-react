@@ -40,8 +40,13 @@ export const isWalletAvailable = (
   return !!provider.providers?.some((provider) => checkProviderIdentity({ provider, device }))
 }
 
+/**
+ * Identify XDCPayV1
+ * Should have isXDCPay attribute to true
+ * @param provider
+ * @returns boolean
+ */
 function isXDCPay(provider) {
-  //return !!provider && (!!provider.isXDCPay || !!provider.isMetaMask)
   return !!provider && !!provider.isXDCPay
 }
 
@@ -56,6 +61,10 @@ async function getAddress() {
   return accounts
 }
 
+/**
+ * Custom requestPatch for XDCPay V1
+ * Uses existing helper functions to fetch accounts & balances
+ */
 const xdcPayRequestPatch: RequestPatch = {
   eth_requestAccounts: ({ baseRequest }) => {
     return getWeb3().eth.getAccounts()
@@ -77,40 +86,6 @@ const xdcPayRequestPatch: RequestPatch = {
     return baseRequest(request)
   },
 }
-
-// const xdcPayModule: InjectedWalletModule = {
-//   label: 'XDCPay V1',
-//   injectedNamespace: InjectedNameSpace.Ethereum,
-//   checkProviderIdentity: ({ provider }) => isXDCPay(provider),
-//   getIcon: async () => XDCPayIcon,
-//   // getInterface: async () => {
-//   //   const anyWindow: any = window
-//   //   if('ethereum' in window){
-//   //     return {
-//   //       provider: createXDCPayProvider(window.ethereum),
-//   //     }
-//   //   }
-//   //   window.open('https://chrome.google.com/webstore/detail/xinpay/bocpokimicclpaiekenaeelehdjllofo', '_blank')
-//   //   throw new Error('Please install XDCPay before proceeding')
-
-//   // },
-//   getInterface: async () => ({
-//     provider: createXDCPayProvider(window.ethereum, xdcPayRequestPatch),
-//   }),
-//   platforms: ['all'],
-// }
-
-// const metamaskModule: InjectedWalletModule = {
-//   label: ProviderLabel.XDCPay,
-//   injectedNamespace: InjectedNameSpace.Ethereum,
-//   checkProviderIdentity: ({ provider }) => !!provider && !!provider.isMetaMask,
-//   //getIcon: async () => (await import('./icons/metamask')).default,
-//   getIcon: async () => XDCPayIcon,
-//   getInterface: async () => ({
-//     provider: createEIP1193Provider(window.ethereum),
-//   }),
-//   platforms: ['all'],
-// }
 
 export const defaultWalletUnavailableMsg = ({ label }: InjectedWalletModule) =>
   `Please install or enable ${label} to continue`
@@ -202,6 +177,12 @@ function injected(options?: InjectedWalletOptions): WalletInit {
   }
 }
 
+/**
+ * Custom function to validate if the wallet is currently selected.
+ * XDCPayV1 identified as the one that does not inject chainId.
+ * @param provider
+ * @returns boolean
+ */
 function providerIdentityCheck(provider: { chainId: any; isMetaMask: any }) {
   if (provider.chainId) {
     return !!provider && !!provider.isMetaMask && !!provider.chainId
@@ -210,6 +191,12 @@ function providerIdentityCheck(provider: { chainId: any; isMetaMask: any }) {
   }
 }
 
+/**
+ * Custom function to choose EIP1193 Provider
+ * XDCPayV1 identified as the one that does not inject chainId.
+ * @param window
+ * @returns EIP1193Provider
+ */
 function providerInterface(window) {
   if ('chainId' in window.ethereum) {
     return createEIP1193Provider(window.ethereum)
