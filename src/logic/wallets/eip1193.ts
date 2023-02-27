@@ -82,11 +82,19 @@ const createRequest = (provider: any): EIP1193Provider['request'] =>
           },
           (error: string, { result }: JsonRpcResponse) => {
             if (error) {
+              // hack implemented to make XDCPayV1 error messages propagate.
+              // error.stack is currently sent in error.message
+              // causing JSON parsing issue
               const stringConstructor = 'String'.constructor
               if (error.constructor === stringConstructor) {
                 reject(JSON.parse(error))
               } else {
-                reject()
+                const errorObject = Object(error)
+                if ('message' in errorObject) {
+                  reject(errorObject.message)
+                } else {
+                  reject()
+                }
               }
             } else {
               resolve(result == undefined ? null : (result as any))
