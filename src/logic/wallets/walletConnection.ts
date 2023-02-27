@@ -78,39 +78,39 @@ const xdcPayRequestPatch: RequestPatch = {
   },
 }
 
-const xdcPayModule: InjectedWalletModule = {
-  label: 'XDCPay V1',
-  injectedNamespace: InjectedNameSpace.Ethereum,
-  checkProviderIdentity: ({ provider }) => isXDCPay(provider),
-  getIcon: async () => XDCPayIcon,
-  // getInterface: async () => {
-  //   const anyWindow: any = window
-  //   if('ethereum' in window){
-  //     return {
-  //       provider: createXDCPayProvider(window.ethereum),
-  //     }
-  //   }
-  //   window.open('https://chrome.google.com/webstore/detail/xinpay/bocpokimicclpaiekenaeelehdjllofo', '_blank')
-  //   throw new Error('Please install XDCPay before proceeding')
+// const xdcPayModule: InjectedWalletModule = {
+//   label: 'XDCPay V1',
+//   injectedNamespace: InjectedNameSpace.Ethereum,
+//   checkProviderIdentity: ({ provider }) => isXDCPay(provider),
+//   getIcon: async () => XDCPayIcon,
+//   // getInterface: async () => {
+//   //   const anyWindow: any = window
+//   //   if('ethereum' in window){
+//   //     return {
+//   //       provider: createXDCPayProvider(window.ethereum),
+//   //     }
+//   //   }
+//   //   window.open('https://chrome.google.com/webstore/detail/xinpay/bocpokimicclpaiekenaeelehdjllofo', '_blank')
+//   //   throw new Error('Please install XDCPay before proceeding')
 
-  // },
-  getInterface: async () => ({
-    provider: createXDCPayProvider(window.ethereum, xdcPayRequestPatch),
-  }),
-  platforms: ['all'],
-}
+//   // },
+//   getInterface: async () => ({
+//     provider: createXDCPayProvider(window.ethereum, xdcPayRequestPatch),
+//   }),
+//   platforms: ['all'],
+// }
 
-const metamaskModule: InjectedWalletModule = {
-  label: ProviderLabel.XDCPay,
-  injectedNamespace: InjectedNameSpace.Ethereum,
-  checkProviderIdentity: ({ provider }) => !!provider && !!provider.isMetaMask,
-  //getIcon: async () => (await import('./icons/metamask')).default,
-  getIcon: async () => XDCPayIcon,
-  getInterface: async () => ({
-    provider: createEIP1193Provider(window.ethereum),
-  }),
-  platforms: ['all'],
-}
+// const metamaskModule: InjectedWalletModule = {
+//   label: ProviderLabel.XDCPay,
+//   injectedNamespace: InjectedNameSpace.Ethereum,
+//   checkProviderIdentity: ({ provider }) => !!provider && !!provider.isMetaMask,
+//   //getIcon: async () => (await import('./icons/metamask')).default,
+//   getIcon: async () => XDCPayIcon,
+//   getInterface: async () => ({
+//     provider: createEIP1193Provider(window.ethereum),
+//   }),
+//   platforms: ['all'],
+// }
 
 export const defaultWalletUnavailableMsg = ({ label }: InjectedWalletModule) =>
   `Please install or enable ${label} to continue`
@@ -202,8 +202,34 @@ function injected(options?: InjectedWalletOptions): WalletInit {
   }
 }
 
+function providerIdentityCheck(provider: { chainId: any; isMetaMask: any }) {
+  if (provider.chainId) {
+    return !!provider && !!provider.isMetaMask && !!provider.chainId
+  } else {
+    return isXDCPay(provider)
+  }
+}
+
+function providerInterface(window) {
+  if ('chainId' in window.ethereum) {
+    return createEIP1193Provider(window.ethereum)
+  } else {
+    return createXDCPayProvider(window.ethereum, xdcPayRequestPatch)
+  }
+}
+
+const moduleToInject: InjectedWalletModule = {
+  label: ProviderLabel.XDCPay,
+  injectedNamespace: InjectedNameSpace.Ethereum,
+  checkProviderIdentity: ({ provider }) => providerIdentityCheck(provider),
+  getIcon: async () => XDCPayIcon,
+  getInterface: async () => ({
+    provider: providerInterface(window),
+  }),
+  platforms: ['all'],
+}
 const injectedWalletOpts: InjectedWalletOptions = {
-  custom: [xdcPayModule, metamaskModule],
+  custom: [moduleToInject],
   displayUnavailable: true,
 }
 
