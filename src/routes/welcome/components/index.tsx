@@ -5,7 +5,7 @@ import { Card, Button, Title, Text, Divider, Dot, Icon } from '@gnosis.pm/safe-r
 import Link from 'src/components/layout/Link'
 import Block from 'src/components/layout/Block'
 import { LOAD_ADDRESS, OPEN_ADDRESS } from 'src/routes/routes'
-import { onConnectButtonClick } from 'src/components/ConnectButton'
+import { OnboardUser } from 'src/logic/wallets/walletConnection'
 import { useSelector } from 'react-redux'
 import { providerNameSelector } from 'src/logic/wallets/store/selectors'
 
@@ -101,7 +101,7 @@ export const WelcomeLayout = ({ isOldMultisigMigration }: Props): React.ReactEle
               size="lg"
               color="primary"
               variant="contained"
-              onClick={onConnectButtonClick}
+              onClick={OnboardUser}
               disabled={!!provider}
               data-testid="connect-btn"
             >

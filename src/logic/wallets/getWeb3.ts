@@ -14,6 +14,7 @@ import { ETHEREUM_NETWORK } from 'src/config/networks/network.d'
 export enum WALLET_PROVIDER {
   DETECTED_WALLET = 'DETECTED WALLET',
   XDCPAY = 'XDCPAY',
+  XDCPAYV1 = 'XDCPAY V1',
   METAMASK = 'METAMASK',
   TORUS = 'TORUS',
   PORTIS = 'PORTIS',

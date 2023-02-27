@@ -2,7 +2,7 @@ import { push } from 'connected-react-router'
 import { AnyAction } from 'redux'
 import { ThunkAction } from 'redux-thunk'
 
-import { onboardUser } from 'src/components/ConnectButton'
+import { OnboardUser } from 'src/logic/wallets/walletConnection'
 import { getGnosisSafeInstanceAt } from 'src/logic/contracts/safeContracts'
 import { getNotificationsFromTxType, NOTIFICATIONS } from 'src/logic/notifications'
 import {
@@ -86,7 +86,7 @@ export const createTransaction =
       )
     }
 
-    const ready = await onboardUser()
+    const ready = await OnboardUser()
     if (!ready) return
 
     const { account: from, hardwareWallet, smartContractWallet } = providerSelector(state)

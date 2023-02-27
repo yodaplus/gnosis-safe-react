@@ -25,6 +25,10 @@ const WALLET_ICONS: { [key in WALLET_PROVIDER]: { src: string; height: number } 
     src: xinpayIcon,
     height: 25,
   },
+  [WALLET_PROVIDER.XDCPAYV1]: {
+    src: xinpayIcon,
+    height: 25,
+  },
   [WALLET_PROVIDER.METAMASK]: {
     src: metamaskIcon,
     height: 25,
