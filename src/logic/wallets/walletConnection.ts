@@ -318,10 +318,16 @@ function processStateUpdate(state) {
   }
 }
 
+/**
+ * Tries to connect to onboard if not already connected.
+ */
 async function connectWallet() {
-  const state = onboard.state.select()
-  const { unsubscribe } = state.subscribe((update) => processStateUpdate(update))
-  await onboard.connectWallet()
+  const [connectedWallet] = onboard.state.get().wallets
+  if (!connectedWallet) {
+    const state = onboard.state.select()
+    const { unsubscribe } = state.subscribe((update) => processStateUpdate(update))
+    await onboard.connectWallet()
+  }
 }
 
 export async function disconnectWallet() {
@@ -330,6 +336,11 @@ export async function disconnectWallet() {
   await onboard.disconnectWallet({ label: primaryWallet.label })
 }
 
+/**
+ * Wrapper on "connectWallet" and exported.
+ * Has additional support for boolean status to accomodate existing workflows.
+ * @returns boolean
+ */
 export const OnboardUser = async (): Promise<boolean> => {
   connectWallet()
   const [connectedWallet] = onboard.state.get().wallets
