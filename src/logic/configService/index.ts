@@ -1,9 +1,6 @@
-import axios from 'axios'
-import { getNetworkId } from 'src/config'
-import { CONFIG_SERVICE_URL } from 'src/utils/constants'
-import { loadFromStorage, saveToStorage } from 'src/utils/storage'
-import { APPS_STORAGE_KEY, getEmptySafeApp } from 'src/routes/safe/components/Apps/utils'
-import { StoredSafeApp } from 'src/routes/safe/components/Apps/types'
+// import axios from 'axios'
+// import { getNetworkId } from 'src/config'
+// import { CONFIG_SERVICE_URL } from 'src/utils/constants'
 
 export type AppData = {
   url: string
@@ -20,32 +17,15 @@ enum Endpoints {
 }
 
 export const fetchSafeAppsList = async (): Promise<AppData[]> => {
-  const persistedAppList = (await loadFromStorage<(StoredSafeApp & { disabled?: boolean })[]>(APPS_STORAGE_KEY)) || []
-
-  console.log('🚀 ~ file: index.ts:23 ~ fetchSafeAppsList ~ persistedAppList:', persistedAppList)
-
-  const checkExistense = persistedAppList.filter((app) => app.url === 'https://governance.comtechglobal.ae/')
-
-  console.log('🚀 ~ file: index.ts:27 ~ fetchSafeAppsList ~ checkExistense:', checkExistense.length >= 1)
-
-  if (checkExistense.length < 1) {
-    persistedAppList.push({ url: 'https://governance.comtechglobal.ae/', disabled: false })
-    saveToStorage(APPS_STORAGE_KEY, persistedAppList)
-  }
-
-  // ****
-
-  // await loadFromStorage<(StoredSafeApp & { disabled?: boolean })[]>(APPS_STORAGE_KEY)
-
-  // console.log('🚀 ~ file: index.ts:23 ~ fetchSafeAppsList ~ persistedAppList:', persistedAppList[0].url)
-
-  // const newAppList = [
-  //   { url: 'https://governance.comtechglobal.ae/', disabled: false },
-  //   ...persistedAppList.map(({ url, disabled }) => ({ url, disabled })),
-  // ]
-  // saveToStorage(APPS_STORAGE_KEY, newAppList)
-  // saveToStorage(APPS_STORAGE_KEY, [{ url: 'https://governance.comtechglobal.ae/', disabled: false }])
-
-  const networkId = getNetworkId()
-  return axios.get(`${CONFIG_SERVICE_URL}${Endpoints['SAFE_APPS']}?chainId=${networkId}`).then(({ data }) => data)
+  const preloadedApps = [
+    {
+      url: 'https://governance.comtechglobal.ae/',
+      name: 'Comtech Gold',
+      description: 'Tokenize Comtech Gold',
+      networks: [50, 51],
+      custom: false,
+      iconUrl: 'https://governance.comtechglobal.ae/favicon/apple-touch-icon.png',
+    },
+  ]
+  return preloadedApps
 }

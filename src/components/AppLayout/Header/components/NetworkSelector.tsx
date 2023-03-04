@@ -85,11 +85,16 @@ const NetworkSelector = ({ open, toggle, networks, clickAway }: NetworkSelectorP
   return (
     <>
       <div className={classes.root} ref={networkRef}>
-        <Col className={classes.networkList} end="sm" middle="xs" onClick={toggle}>
+        <Col
+          className={classes.networkList}
+          end="sm"
+          middle="xs"
+          // onClick={toggle}
+        >
           <NetworkLabel />
-          <IconButton className={classes.expand} disableRipple>
+          {/* <IconButton className={classes.expand} disableRipple>
             {open ? <ExpandLess /> : <ExpandMore />}
-          </IconButton>
+          </IconButton> */}
         </Col>
         <Divider />
       </div>

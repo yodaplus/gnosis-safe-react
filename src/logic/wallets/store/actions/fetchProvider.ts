@@ -27,10 +27,6 @@ const handleProviderNotification = (provider, dispatch) => {
     dispatch(enqueueSnackbar(enhanceSnackbarForAction(NOTIFICATIONS.TESTNET_VERSION_MSG)))
   }
 
-  if (getNetworkInfo().id === ETHEREUM_NETWORK.XINFIN) {
-    dispatch(enqueueSnackbar(enhanceSnackbarForAction(NOTIFICATIONS.BETA_VERSION_MSG)))
-  }
-
   if (available) {
     // NOTE:
     // if you want to be able to dispatch a `closeSnackbar` action later on,

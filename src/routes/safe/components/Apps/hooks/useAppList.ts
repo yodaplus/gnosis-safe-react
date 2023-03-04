@@ -16,17 +16,7 @@ type UseAppListReturnType = {
 }
 
 const useAppList = (): UseAppListReturnType => {
-  const [appList, setAppList] = useState<SafeApp[]>([
-    {
-      id: 'tokenization',
-      url: 'https://tokenization-apothem-prod.yodaplus.net/multisig/',
-      name: 'tokenization',
-      iconUrl: 'https://yodaplus-tokenization-prod.s3.amazonaws.com/organization_logos/yodaplus_KUuWc0F.jpg',
-      description: 'tokerization',
-      error: false,
-      fetchStatus: SAFE_APP_FETCH_STATUS.SUCCESS,
-    },
-  ])
+  const [appList, setAppList] = useState<SafeApp[]>([])
   const [apiAppsList, setApiAppsList] = useState<AppData[]>([])
   const [customAppList, setCustomAppList] = useState<(StoredSafeApp & { disabled?: boolean; networks?: number[] })[]>(
     [],
