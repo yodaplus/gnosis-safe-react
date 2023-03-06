@@ -30,6 +30,11 @@ const xinfin: NetworkConfig = {
     },
     production: {
       ...baseConfig,
+      safeUrl: 'http://localhost:3000',
+      clientGatewayUrl: `https://mainnet.yplusvault.com:8001/v1`,
+      txServiceUrl: `https://mainnet.yplusvault.com:8000/api/v1`,
+      rpcServiceUrl: `https://mainnet.yplusvault.com:8083`,
+      safeAppsRpcServiceUrl: `https://mainnet.yplusvault.com:8083`,
     },
   },
   network: {
