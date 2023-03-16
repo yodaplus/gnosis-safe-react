@@ -3,6 +3,7 @@ import { getClientGatewayUrl } from 'src/config'
 import { HistoryGatewayResponse, QueuedGatewayResponse } from 'src/logic/safe/store/models/types/gateway'
 import { checksumAddress } from 'src/utils/checksumAddress'
 import { Errors, CodedException } from 'src/logic/exceptions/CodedException'
+import { parseToHttps } from 'src/utils/url'
 
 /*************/
 /*  HISTORY  */
@@ -31,6 +32,8 @@ export const loadPagedHistoryTransactions = async (
     )
 
     historyPointers[safeAddress] = { next, previous }
+    historyPointers[safeAddress].next = parseToHttps(next)
+    historyPointers[safeAddress].previous = parseToHttps(previous)
 
     return { values: results, next: historyPointers[safeAddress].next }
   } catch (e) {
@@ -44,6 +47,8 @@ export const loadHistoryTransactions = async (safeAddress: string): Promise<Hist
 
     if (!historyPointers[safeAddress]) {
       historyPointers[safeAddress] = { next, previous }
+      historyPointers[safeAddress].next = parseToHttps(next)
+      historyPointers[safeAddress].previous = parseToHttps(previous)
     }
 
     return results
@@ -79,6 +84,8 @@ export const loadPagedQueuedTransactions = async (
     )
 
     queuedPointers[safeAddress] = { next, previous }
+    queuedPointers[safeAddress].next = parseToHttps(next)
+    queuedPointers[safeAddress].previous = parseToHttps(previous)
 
     return { values: results, next: queuedPointers[safeAddress].next }
   } catch (e) {
@@ -92,6 +99,8 @@ export const loadQueuedTransactions = async (safeAddress: string): Promise<Queue
 
     if (!queuedPointers[safeAddress] || queuedPointers[safeAddress].next === null) {
       queuedPointers[safeAddress] = { next, previous }
+      queuedPointers[safeAddress].next = parseToHttps(next)
+      queuedPointers[safeAddress].previous = parseToHttps(previous)
     }
 
     return results
