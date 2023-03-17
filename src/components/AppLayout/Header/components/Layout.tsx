@@ -16,9 +16,10 @@ import Row from 'src/components/layout/Row'
 import { headerHeight, md, screenSm, sm } from 'src/theme/variables'
 import { useStateHandler } from 'src/logic/hooks/useStateHandler'
 
-import SafeLogo from '../assets/yodaplus-logo-wide.png'
+import SafeLogo from 'src/assets/images/yodaplus-logo-wide.png'
 import { getNetworks } from 'src/config'
-import { shouldSwitchNetwork } from 'src/logic/wallets/utils/network'
+//import { shouldSwitchNetwork } from 'src/logic/wallets/utils/network'
+import { Web3OnboardProvider, init } from '@web3-onboard/react'
 
 const styles = () => ({
   root: {
@@ -87,7 +88,7 @@ const Layout = ({ classes, providerDetails, providerInfo }) => {
             <Popper
               anchorEl={providerRef.current}
               className={classes.popper}
-              open={open || shouldSwitchNetwork()}
+              open={open}
               placement="bottom"
               popperOptions={{ positionFixed: true }}
             >
