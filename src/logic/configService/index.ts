@@ -26,6 +26,14 @@ export const fetchSafeAppsList = async (): Promise<AppData[]> => {
       custom: false,
       iconUrl: 'https://governance.comtechglobal.ae/favicon/apple-touch-icon.png',
     },
+    {
+      url: 'https://cgold.comtechglobal.ae/',
+      name: 'CGold',
+      description: 'Tokenize CGold',
+      networks: [50, 51],
+      custom: false,
+      iconUrl: 'https://cgold.comtechglobal.ae/favicon/apple-touch-icon.png',
+    },
   ]
   return preloadedApps
 }
