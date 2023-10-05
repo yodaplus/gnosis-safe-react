@@ -18,10 +18,12 @@ export const isSameURL = (url1: string, url2: string): boolean => {
 }
 
 export const parseToHttps = (url: any) => {
-  const _url = url
-  const url_split = _url.split(':')
+  if (!url) {
+    return url
+  }
+  const url_split = url.split(':')
   if (url_split[0] === 'https') {
     return url
   }
-  return _url.replace(/^http/, 'https')
+  return url.replace(/^http/, 'https')
 }
